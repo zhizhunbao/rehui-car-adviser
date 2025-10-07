@@ -677,3 +677,689 @@ Stacktrace:
 2025-10-06 20:38:33,528 | 42 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
 2025-10-06 20:38:33,528 | 43 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
 2025-10-06 20:38:33,528 | 44 | app.api.routes.search_cars:61 | 搜索成功 - 返回0条结果
+2025-10-06 20:47:12,986 | 45 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: 你大爷
+2025-10-06 20:47:12,986 | 46 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 你大爷
+2025-10-06 20:47:12,986 | 47 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: 你大爷
+2025-10-06 20:47:14,263 | 48 | app.services.gemini_service.parse_user_query:89 | AI解析成功 - 品牌=None, 车型=None, 年份=None-None
+2025-10-06 20:47:14,264 | 49 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 20:47:14,264 | 50 | app.services.cargurus_scraper.search_cars:190 | 开始爬虫搜索 - 查询: None None
+2025-10-06 20:47:16,950 | 51 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:16,950 | 52 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第1次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:16,951 | 53 | app.services.cargurus_scraper.search_cars:200 | 爬虫重试 - 第2次尝试
+2025-10-06 20:47:21,629 | 54 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:21,629 | 55 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第2次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:21,630 | 56 | app.services.cargurus_scraper.search_cars:200 | 爬虫重试 - 第3次尝试
+2025-10-06 20:47:28,262 | 57 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:28,262 | 58 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第3次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:28,262 | 59 | app.services.cargurus_scraper.search_cars:262 | 爬虫搜索失败 - 所有重试失败，最终错误: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:47:28,263 | 60 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 20:47:28,263 | 61 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 20:47:28,263 | 62 | app.api.routes.search_cars:61 | 搜索成功 - 返回0条结果
+2025-10-06 20:49:26,950 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 20:49:26,950 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:26,950 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:49:26,951 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:49:38,910 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 20:49:38,910 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:38,910 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:49:38,910 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:49:42,571 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:49:42,571 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:42,571 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:49:42,571 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:42,572 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:49:42,572 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:49:42,572 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:49:48,235 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:49:48,235 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:48,235 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:49:48,235 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:48,236 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:49:48,236 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:49:48,236 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:49:51,397 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:49:51,397 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:51,397 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:49:51,397 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:51,397 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:49:51,397 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:49:51,397 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:49:55,624 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:49:55,624 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:55,624 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:49:55,624 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:49:55,624 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:49:55,625 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:49:55,625 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:51:06,558 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:51:06,558 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:06,558 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:51:06,558 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:06,558 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:51:06,558 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:51:06,558 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:51:09,643 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:51:09,643 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:09,643 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:51:09,643 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:09,643 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:51:09,643 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:51:09,643 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:51:27,629 | 1 | app.services.search_service.__init__:11 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:51:27,629 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:27,629 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:51:27,629 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:27,629 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:51:27,629 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:51:27,629 | 7 | app.services.search_service.__init__:17 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:51:29,844 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:51:29,844 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:29,844 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:51:29,845 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:29,845 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:51:29,845 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:51:29,845 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:51:38,348 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:51:38,349 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:38,349 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:51:38,349 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:38,349 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:51:38,349 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:51:38,349 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:51:40,356 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:51:40,356 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:40,356 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:51:40,356 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:51:40,356 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:51:40,356 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:51:40,357 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:52:55,771 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 20:52:55,771 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:52:55,771 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 20:52:55,771 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 20:52:55,771 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 20:52:55,771 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 20:52:55,771 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:07:48,744 | 8 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你妈...
+2025-10-06 21:07:48,745 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你妈...
+2025-10-06 21:07:48,745 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你妈...
+2025-10-06 21:07:48,745 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你妈...
+2025-10-06 21:07:51,760 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 113, 需要搜索: False
+2025-10-06 21:07:51,760 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是一个专业的汽车购买顾问AI助手，很高兴能为您服务。我的主要任务是帮助您找到心仪的汽车。如果...
+2025-10-06 21:07:51,760 | 14 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 113
+2025-10-06 21:11:09,274 | 15 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:11:09,274 | 16 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:11:09,274 | 17 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:11:09,274 | 18 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:11:12,015 | 19 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 108, 需要搜索: False
+2025-10-06 21:11:12,015 | 20 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问AI助手。很高兴能为您服务。您刚才说的“你大爷”是想表达什么呢？如果您...
+2025-10-06 21:11:12,016 | 21 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 108
+2025-10-06 21:11:31,501 | 22 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:11:31,501 | 23 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:11:31,501 | 24 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:11:31,501 | 25 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:11:34,675 | 26 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 92, 需要搜索: False
+2025-10-06 21:11:34,675 | 27 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专业汽车购买顾问AI助手，很高兴为您服务。如果您有任何关于购车的需求或疑问，比如想了解...
+2025-10-06 21:11:34,676 | 28 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 92
+2025-10-06 21:12:03,469 | 29 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:12:03,470 | 30 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:12:03,470 | 31 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:12:03,470 | 32 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:12:06,382 | 33 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 118, 需要搜索: False
+2025-10-06 21:12:06,382 | 34 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的AI汽车购买顾问。如果您有任何购车需求或想了解特定车型，请告诉我您的预算、偏好品牌、车...
+2025-10-06 21:12:06,382 | 35 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 118
+2025-10-06 21:13:05,363 | 36 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:13:05,363 | 37 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:13:05,363 | 38 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:13:05,363 | 39 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:13:09,479 | 40 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 123, 需要搜索: False
+2025-10-06 21:13:09,479 | 41 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问AI助手，很高兴能为您服务。如果您有任何购车需求或想了解特定车型，请随时告...
+2025-10-06 21:13:09,479 | 42 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 123
+2025-10-06 21:15:16,610 | 43 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:15:16,610 | 44 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:15:16,610 | 45 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:15:16,610 | 46 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:15:21,385 | 47 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 127, 需要搜索: False
+2025-10-06 21:15:21,385 | 48 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问AI助手。如果您有任何购车需求，或者想了解特定车型的信息，请告诉我。我...
+2025-10-06 21:15:21,385 | 49 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 127
+2025-10-06 21:17:02,925 | 50 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:17:02,925 | 51 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:17:02,925 | 52 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:17:02,926 | 53 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:17:06,549 | 54 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 81, 需要搜索: False
+2025-10-06 21:17:06,549 | 55 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问AI助手。很高兴能为您服务。如果您有任何购车需求，例如想了解特定品牌、车型...
+2025-10-06 21:17:06,549 | 56 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 81
+2025-10-06 21:22:50,720 | 57 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:22:50,720 | 58 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:22:50,720 | 59 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:22:50,720 | 60 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:22:53,007 | 61 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 114, 需要搜索: False
+2025-10-06 21:22:53,007 | 62 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问AI助手。如果您正在考虑购买汽车，或者对特定车型有疑问，随时可以告诉我您的...
+2025-10-06 21:22:53,007 | 63 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 114
+2025-10-06 21:23:15,736 | 64 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:23:15,736 | 65 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:23:15,736 | 66 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:23:15,736 | 67 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:23:17,834 | 68 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 177, 需要搜索: False
+2025-10-06 21:23:17,834 | 69 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问AI助手。很高兴能为您服务。关于“你大爷”这个词，我理解这可能是一种情...
+2025-10-06 21:23:17,835 | 70 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 177
+2025-10-06 21:24:55,769 | 71 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:24:55,769 | 72 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:24:55,769 | 73 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:24:55,769 | 74 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:24:57,888 | 75 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 82, 需要搜索: False
+2025-10-06 21:24:57,888 | 76 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问AI助手。如果您有任何关于购车的需求或问题，比如预算、偏好的品牌、车型类型...
+2025-10-06 21:24:57,888 | 77 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 82
+2025-10-06 21:27:46,587 | 78 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: n...
+2025-10-06 21:27:46,587 | 79 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: n...
+2025-10-06 21:27:46,587 | 80 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: n...
+2025-10-06 21:27:46,587 | 81 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: n...
+2025-10-06 21:27:49,363 | 82 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 119, 需要搜索: False
+2025-10-06 21:27:49,363 | 83 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！很高兴能为您服务。您刚才输入了一个字母“n”，请问您有什么具体的购车需求吗？例如，您是在寻找哪...
+2025-10-06 21:27:49,363 | 84 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 119
+2025-10-06 21:30:18,076 | 85 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:30:18,076 | 86 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:30:18,076 | 87 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:30:18,076 | 88 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:30:20,730 | 89 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 94, 需要搜索: False
+2025-10-06 21:30:20,730 | 90 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问AI。如果您有任何购车方面的疑问或需求，例如预算、偏好品牌、车型或具体...
+2025-10-06 21:30:20,730 | 91 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 94
+2025-10-06 21:30:29,874 | 92 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 西八...
+2025-10-06 21:30:29,875 | 93 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 西八...
+2025-10-06 21:30:29,875 | 94 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 西八...
+2025-10-06 21:30:29,875 | 95 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 西八...
+2025-10-06 21:30:33,304 | 96 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 91, 需要搜索: False
+2025-10-06 21:30:33,304 | 97 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问。如果您准备好分享您的购车需求，无论是预算、偏好品牌、车型，还是对车辆...
+2025-10-06 21:30:33,304 | 98 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 91
+2025-10-06 21:31:41,664 | 99 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 而且...
+2025-10-06 21:31:41,664 | 100 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 而且...
+2025-10-06 21:31:41,664 | 101 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 而且...
+2025-10-06 21:31:41,664 | 102 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 而且...
+2025-10-06 21:31:45,840 | 103 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 236, 需要搜索: False
+2025-10-06 21:31:45,840 | 104 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！您是想继续补充之前的需求吗？没问题，我在这里随时准备为您提供帮助。为了更好地理解您的需求，您能...
+2025-10-06 21:31:45,840 | 105 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 236
+2025-10-06 21:32:12,707 | 106 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你是什么 ai...
+2025-10-06 21:32:12,708 | 107 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你是什么 ai...
+2025-10-06 21:32:12,708 | 108 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你是什么 ai...
+2025-10-06 21:32:12,708 | 109 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你是什么 ai...
+2025-10-06 21:32:14,894 | 110 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 114, 需要搜索: False
+2025-10-06 21:32:14,894 | 111 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是一个专业的汽车购买顾问AI助手，我的主要任务是帮助您找到最适合您的爱车。您可以把我当成您专...
+2025-10-06 21:32:14,895 | 112 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 114
+2025-10-06 21:32:25,703 | 113 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你能说英文吗...
+2025-10-06 21:32:25,703 | 114 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你能说英文吗...
+2025-10-06 21:32:25,703 | 115 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你能说英文吗...
+2025-10-06 21:32:25,704 | 116 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你能说英文吗...
+2025-10-06 21:32:27,917 | 117 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 93, 需要搜索: False
+2025-10-06 21:32:27,918 | 118 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 是的，我完全可以和您用英文交流。如果您想用英文描述您的购车需求，或者有任何英文方面的问题，请随时告诉...
+2025-10-06 21:32:27,918 | 119 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 93
+2025-10-06 21:32:41,543 | 120 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 我不信...
+2025-10-06 21:32:41,543 | 121 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 我不信...
+2025-10-06 21:32:41,543 | 122 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 我不信...
+2025-10-06 21:32:41,543 | 123 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 我不信...
+2025-10-06 21:32:43,560 | 124 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 156, 需要搜索: False
+2025-10-06 21:32:43,561 | 125 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 我理解您的顾虑，不过请您放心，我作为专业的AI助手，具备多语言交流的能力。我的核心任务是帮助您找到最...
+2025-10-06 21:32:43,561 | 126 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 156
+2025-10-06 21:33:03,430 | 127 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 水电费...
+2025-10-06 21:33:03,431 | 128 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 水电费...
+2025-10-06 21:33:03,431 | 129 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 水电费...
+2025-10-06 21:33:03,431 | 130 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 水电费...
+2025-10-06 21:33:06,078 | 131 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 144, 需要搜索: False
+2025-10-06 21:33:06,078 | 132 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问。您提到了“水电费”，这似乎与购车需求没有直接关系。如果您是在考虑购买新车...
+2025-10-06 21:33:06,078 | 133 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 144
+2025-10-06 21:34:47,333 | 134 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 你怎么回事...
+2025-10-06 21:34:47,334 | 135 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你怎么回事...
+2025-10-06 21:34:47,334 | 136 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你怎么回事...
+2025-10-06 21:34:47,334 | 137 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你怎么回事...
+2025-10-06 21:34:51,671 | 138 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 225, 需要搜索: False
+2025-10-06 21:34:51,671 | 139 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 非常抱歉，可能我之前的回复让您感到困惑了。请允许我重新说明一下，我作为您的汽车购买顾问，是专门来协助...
+2025-10-06 21:34:51,671 | 140 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 225
+2025-10-06 21:36:12,467 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:36:12,467 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:36:12,467 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:36:12,467 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:36:12,467 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:36:12,467 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:36:12,467 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:36:29,813 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:36:29,813 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:36:29,813 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:36:29,813 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:36:29,813 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:36:29,813 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:36:29,814 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:36:48,400 | 8 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 下巴...
+2025-10-06 21:36:48,401 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 下巴...
+2025-10-06 21:36:48,401 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 下巴...
+2025-10-06 21:36:48,401 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 下巴...
+2025-10-06 21:36:51,139 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 129, 需要搜索: False
+2025-10-06 21:36:51,139 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！很抱歉，我不太理解“下巴”这个词在汽车购买语境中的含义。如果您正在考虑购买汽车，能否请您告诉我...
+2025-10-06 21:36:51,139 | 14 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 129
+2025-10-06 21:37:24,373 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:37:24,373 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:24,373 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:37:24,373 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:24,373 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:37:24,373 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:37:24,373 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:37:26,507 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:37:26,507 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:26,507 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:37:26,507 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:26,507 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:37:26,507 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:37:26,507 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:37:31,467 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:37:31,467 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:31,467 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:37:31,467 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:31,467 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:37:31,467 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:37:31,467 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:37:32,909 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:37:32,909 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:32,909 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:37:32,909 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:37:32,910 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:37:32,910 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:37:32,910 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:37:40,665 | 8 | app.api.routes.start_conversation:89 | 开始对话请求 - 用户消息: 西八...
+2025-10-06 21:37:40,665 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 西八...
+2025-10-06 21:37:40,666 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 西八...
+2025-10-06 21:37:40,666 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 西八...
+2025-10-06 21:37:44,170 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 125, 需要搜索: False
+2025-10-06 21:37:44,172 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问，很高兴能为您提供帮助。如果您正在考虑购买汽车，请告诉我您有哪些偏好和...
+2025-10-06 21:37:44,172 | 14 | app.api.routes.start_conversation:109 | 对话成功 - AI回复长度: 125
+2025-10-06 21:39:25,959 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:39:25,959 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:39:25,959 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:39:25,959 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:39:25,959 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:39:25,960 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:39:25,960 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:39:34,823 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:39:34,823 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:39:34,823 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:39:34,823 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:39:34,823 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:39:34,823 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:39:34,823 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:40:04,878 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:40:04,878 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:04,878 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:40:04,878 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:04,878 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:40:04,878 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:40:04,879 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:40:07,825 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:40:07,825 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:07,825 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:40:07,825 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:07,825 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:40:07,825 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:40:07,825 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:40:14,089 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:40:14,089 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:14,089 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:40:14,089 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:14,090 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:40:14,090 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:40:14,090 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:40:36,672 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:40:36,672 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:36,672 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:40:36,672 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:36,672 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:40:36,672 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:40:36,673 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:40:38,682 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:40:38,682 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:38,682 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:40:38,682 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:38,682 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:40:38,682 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:40:38,682 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:40:44,427 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:40:44,428 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:44,428 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:40:44,428 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:40:44,428 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:40:44,428 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:40:44,428 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:41:19,779 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:41:19,780 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:19,780 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:41:19,780 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:19,780 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:41:19,780 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:41:19,780 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:41:26,485 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:41:26,485 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:26,485 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:41:26,486 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:26,486 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:41:26,486 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:41:26,486 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:41:31,578 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:41:31,579 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:31,579 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:41:31,579 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:31,579 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:41:31,579 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:41:31,579 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:41:32,914 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:41:32,914 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:32,914 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:41:32,914 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:41:32,914 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:41:32,914 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:41:32,914 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:43:12,631 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:43:12,631 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:43:12,632 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:43:12,632 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:43:12,632 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:43:12,632 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:43:12,632 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:43:12,634 | 8 | app.__main__.<module>:19 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 21:43:12,635 | 9 | app.__main__.<module>:52 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 21:43:12,635 | 10 | app.__main__.<module>:53 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 21:43:12,635 | 11 | app.__main__.<module>:54 | 运行模式 - 开发模式
+2025-10-06 21:43:13,301 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:43:13,301 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:43:13,301 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:43:13,301 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:43:13,301 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:43:13,301 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:43:13,301 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:44:36,725 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:44:36,725 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:36,725 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:44:36,725 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:36,725 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:44:36,726 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:44:36,726 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:44:38,467 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:44:38,468 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:38,468 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:44:38,468 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:38,468 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:44:38,468 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:44:38,468 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:44:41,213 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:44:41,213 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:41,213 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:44:41,214 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:41,214 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:44:41,214 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:44:41,214 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:44:42,677 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:44:42,677 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:42,677 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:44:42,678 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:42,678 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:44:42,678 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:44:42,678 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:44:54,185 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:44:54,185 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:54,185 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:44:54,185 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:54,186 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:44:54,186 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:44:54,186 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:44:54,188 | 8 | app.__main__.<module>:19 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 21:44:54,189 | 9 | app.__main__.<module>:52 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 21:44:54,189 | 10 | app.__main__.<module>:53 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 21:44:54,189 | 11 | app.__main__.<module>:54 | 运行模式 - 开发模式
+2025-10-06 21:44:54,921 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:44:54,921 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:54,921 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:44:54,921 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:44:54,922 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:44:54,922 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:44:54,922 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:45:12,371 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:45:12,372 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:45:12,372 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:45:12,372 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:45:12,372 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:45:12,372 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:45:12,372 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:45:14,644 | 1 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:45:14,645 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:45:14,645 | 3 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:45:14,645 | 4 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:45:14,645 | 5 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:45:14,645 | 6 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:45:14,645 | 7 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:45:33,034 | 1 | app.__main__.<module>:21 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 21:45:33,035 | 2 | app.__main__.<module>:56 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 21:45:33,035 | 3 | app.__main__.<module>:57 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 21:45:33,035 | 4 | app.__main__.<module>:58 | 运行模式 - 开发模式
+2025-10-06 21:46:49,046 | 1 | app.__main__.<module>:21 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 21:46:49,048 | 2 | app.__main__.<module>:58 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 21:46:49,048 | 3 | app.__main__.<module>:59 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 21:46:49,048 | 4 | app.__main__.<module>:60 | 运行模式 - 开发模式
+2025-10-06 21:48:25,332 | 1 | app.api.routes.start_conversation:96 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:48:25,333 | 2 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:48:25,333 | 3 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:48:25,333 | 4 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:48:25,333 | 5 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:48:25,333 | 6 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:48:25,333 | 7 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:48:25,333 | 8 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:48:25,333 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:48:25,333 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:48:25,334 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:48:27,636 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 71, 需要搜索: False
+2025-10-06 21:48:27,636 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问AI助手，很高兴为您服务。如果您有任何购车方面的需求或想了解的车型，请随时...
+2025-10-06 21:48:27,637 | 14 | app.api.routes.start_conversation:116 | 对话成功 - AI回复长度: 71
+2025-10-06 21:50:18,701 | 1 | app.api.routes.start_conversation:96 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:50:18,701 | 2 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:50:18,701 | 3 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:50:18,702 | 4 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:50:18,702 | 5 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:50:18,702 | 6 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:50:18,702 | 7 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:50:18,702 | 8 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:50:18,702 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:50:18,702 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:50:18,702 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:50:21,886 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 75, 需要搜索: False
+2025-10-06 21:50:21,887 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的专属汽车购买顾问AI助手。如果您有购车需求，无论是预算、品牌、车型、用途还是其他任何考...
+2025-10-06 21:50:21,887 | 14 | app.api.routes.start_conversation:116 | 对话成功 - AI回复长度: 75
+2025-10-06 21:53:02,252 | 1 | app.api.routes.start_conversation:96 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:53:02,252 | 2 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:53:02,252 | 3 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:53:02,252 | 4 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:53:02,252 | 5 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:53:02,252 | 6 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:53:02,252 | 7 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:53:02,252 | 8 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:53:02,252 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:53:02,252 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:53:02,252 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:53:04,973 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 71, 需要搜索: False
+2025-10-06 21:53:04,973 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问。如果您有任何购车方面的需求或疑问，例如预算、喜欢的品牌、车型或者其他偏好...
+2025-10-06 21:53:04,974 | 14 | app.api.routes.start_conversation:116 | 对话成功 - AI回复长度: 71
+2025-10-06 21:55:04,826 | 1 | app.api.routes.start_conversation:96 | 开始对话请求 - 用户消息: 你大爷...
+2025-10-06 21:55:04,827 | 2 | app.services.search_service.__init__:13 | 搜索服务初始化 - 开始初始化AI解析、对话和爬虫服务
+2025-10-06 21:55:04,827 | 3 | app.services.gemini_service.__init__:31 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:55:04,827 | 4 | app.services.conversation_service.__init__:17 | 对话服务初始化 - 开始初始化AI对话服务
+2025-10-06 21:55:04,827 | 5 | app.services.gemini_service.__init__:31 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 21:55:04,827 | 6 | app.services.conversation_service.__init__:23 | 对话服务初始化完成 - AI对话服务已就绪
+2025-10-06 21:55:04,827 | 7 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 21:55:04,827 | 8 | app.services.search_service.__init__:19 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 21:55:04,827 | 9 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你大爷...
+2025-10-06 21:55:04,827 | 10 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你大爷...
+2025-10-06 21:55:04,827 | 11 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你大爷...
+2025-10-06 21:55:09,336 | 12 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 105, 需要搜索: False
+2025-10-06 21:55:09,336 | 13 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！我是您的汽车购买顾问AI助手。很高兴为您服务。如果您有购车需求，我可以帮助您寻找合适的车型。请...
+2025-10-06 21:55:09,336 | 14 | app.api.routes.start_conversation:116 | 对话成功 - AI回复长度: 105
+2025-10-06 22:00:00,735 | 15 | app.api.routes.start_conversation:96 | 开始对话请求 - 用户消息: 你能说韩语吗...
+2025-10-06 22:00:00,735 | 16 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 你能说韩语吗...
+2025-10-06 22:00:00,735 | 17 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 你能说韩语吗...
+2025-10-06 22:00:00,735 | 18 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 你能说韩语吗...
+2025-10-06 22:00:02,533 | 19 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 87, 需要搜索: False
+2025-10-06 22:00:02,533 | 20 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 您好！作为汽车购买顾问AI助手，我主要通过中文与您沟通，以更好地理解和协助您寻找合适的车辆。如果您有...
+2025-10-06 22:00:02,534 | 21 | app.api.routes.start_conversation:116 | 对话成功 - AI回复长度: 87
+2025-10-06 22:00:11,444 | 22 | app.api.routes.start_conversation:96 | 开始对话请求 - 用户消息: 说韩语...
+2025-10-06 22:00:11,444 | 23 | app.services.search_service.start_conversation:72 | 开始对话式搜索 - 用户消息: 说韩语...
+2025-10-06 22:00:11,445 | 24 | app.services.conversation_service.process_message:30 | 开始对话处理 - 用户消息: 说韩语...
+2025-10-06 22:00:11,445 | 25 | app.services.conversation_service._generate_ai_response:90 | 开始AI对话生成 - 用户消息: 说韩语...
+2025-10-06 22:00:13,353 | 26 | app.services.conversation_service._generate_ai_response:162 | AI对话生成成功 - 回复长度: 127, 需要搜索: False
+2025-10-06 22:00:13,353 | 27 | app.services.conversation_service.process_message:63 | 对话处理完成 - AI回复: 非常抱歉，我是一个汽车购买顾问AI助手，主要设计用于帮助您在中国语境下寻找和评估汽车。我目前只能用中...
+2025-10-06 22:00:13,353 | 28 | app.api.routes.start_conversation:116 | 对话成功 - AI回复长度: 127

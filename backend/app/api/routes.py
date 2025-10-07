@@ -1,11 +1,20 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from app.models.schemas import SearchRequest, SearchResponse
+from app.models.schemas import (
+    SearchRequest, SearchResponse, ConversationRequest, ConversationResponse
+)
 from app.services.search_service import SearchService
 from app.utils.logger import logger
 
 router = APIRouter()
-search_service = SearchService()
+search_service = None
+
+def get_search_service():
+    """懒加载搜索服务，避免reload时重复初始化"""
+    global search_service
+    if search_service is None:
+        search_service = SearchService()
+    return search_service
 
 
 class FrontendLogRequest(BaseModel):
@@ -55,7 +64,7 @@ async def search_cars(request: SearchRequest):
             )
         
         # 关键部位日志：外部调用
-        result = await search_service.search_cars(request)
+        result = await get_search_service().search_cars(request)
         
         if result.success:
             logger.log_result("搜索成功", f"返回{result.total_count}条结果")
@@ -68,6 +77,52 @@ async def search_cars(request: SearchRequest):
         raise
     except Exception as e:
         logger.log_result("搜索失败", f"未预期错误: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"服务器内部错误: {str(e)}"
+        )
+
+
+@router.post("/conversation", response_model=ConversationResponse)
+async def start_conversation(request: ConversationRequest):
+    """
+    对话式搜索接口
+    
+    - **message**: 用户消息
+    - **session_id**: 会话ID（可选）
+    - **conversation_history**: 对话历史（可选）
+    - 返回AI回复和搜索结果
+    """
+    # 关键部位日志：API入口点
+    logger.log_result("开始对话请求", f"用户消息: {request.message[:50]}...")
+    
+    try:
+        # 输入验证
+        if not request.message.strip():
+            logger.log_result("对话失败", "消息内容为空")
+            raise HTTPException(status_code=400, detail="消息内容不能为空")
+        
+        # 检查消息长度
+        if len(request.message.strip()) < 1:
+            logger.log_result("对话失败", "消息内容过短")
+            raise HTTPException(
+                status_code=400,
+                detail="消息内容过短，请输入有效的消息"
+            )
+        
+        # 关键部位日志：外部调用
+        result = await get_search_service().start_conversation(request)
+        
+        if result.success:
+            logger.log_result("对话成功", f"AI回复长度: {len(result.message)}")
+        else:
+            logger.log_result("对话失败", f"错误: {result.error}")
+        
+        return result
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.log_result("对话失败", f"未预期错误: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"服务器内部错误: {str(e)}"
         )

@@ -1,8 +1,18 @@
 import json
+import os
+import warnings
 import google.generativeai as genai
 from app.models.schemas import ParsedQuery
 from app.utils.config import Config
 from app.utils.logger import logger
+
+# 抑制 Google 库的警告
+os.environ["GRPC_VERBOSITY"] = "ERROR"
+os.environ["GRPC_TRACE"] = ""
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+# 抑制 Python warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 class GeminiService:
