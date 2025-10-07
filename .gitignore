@@ -40,6 +40,9 @@ venv.bak/
 *.swo
 *~
 
+# Cursor MCP config (contains sensitive tokens)
+.cursor/mcp.json
+
 # OS
 .DS_Store
 Thumbs.db
