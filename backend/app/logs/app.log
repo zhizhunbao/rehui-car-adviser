@@ -1,0 +1,679 @@
+2025-10-06 17:54:21,988 | 1 | app.services.search_service.__init__:9 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 17:54:21,988 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 17:54:21,988 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 17:54:21,988 | 4 | app.services.search_service.__init__:14 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 17:54:24,189 | 1 | app.services.search_service.__init__:9 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 17:54:24,189 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 17:54:24,193 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 17:54:24,193 | 4 | app.services.search_service.__init__:14 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 17:54:57,564 | 1 | app.services.search_service.__init__:9 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 17:54:57,565 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 17:54:57,565 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 17:54:57,565 | 4 | app.services.search_service.__init__:14 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:01:04,203 | 5 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你好
+2025-10-06 18:01:04,203 | 6 | app.services.search_service.search_cars:21 | 开始车源搜索流程 - 用户查询: 你好
+2025-10-06 18:01:04,203 | 7 | app.services.gemini_service.parse_user_query:24 | 开始AI解析 - 原始查询: 你好
+2025-10-06 18:01:04,346 | 8 | app.services.gemini_service.parse_user_query:90 | AI解析失败 - 错误: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:01:04,346 | 9 | app.services.search_service.search_cars:52 | 搜索流程失败 - 错误: 'ParsedQuery' object has no attribute 'brand'
+2025-10-06 18:01:04,346 | 10 | app.api.routes.search_cars:38 | 搜索失败 - 错误: 搜索过程中发生错误: 'ParsedQuery' object has no attribute 'brand'
+2025-10-06 18:05:10,058 | 11 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你妈妈
+2025-10-06 18:05:10,058 | 12 | app.services.search_service.search_cars:21 | 开始车源搜索流程 - 用户查询: 你妈妈
+2025-10-06 18:05:10,058 | 13 | app.services.gemini_service.parse_user_query:24 | 开始AI解析 - 原始查询: 你妈妈
+2025-10-06 18:05:10,177 | 14 | app.services.gemini_service.parse_user_query:90 | AI解析失败 - 错误: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:05:10,177 | 15 | app.services.search_service.search_cars:52 | 搜索流程失败 - 错误: 'ParsedQuery' object has no attribute 'brand'
+2025-10-06 18:05:10,177 | 16 | app.api.routes.search_cars:38 | 搜索失败 - 错误: 搜索过程中发生错误: 'ParsedQuery' object has no attribute 'brand'
+2025-10-06 18:05:20,327 | 17 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你妈
+2025-10-06 18:05:20,328 | 18 | app.services.search_service.search_cars:21 | 开始车源搜索流程 - 用户查询: 你妈
+2025-10-06 18:05:20,328 | 19 | app.services.gemini_service.parse_user_query:24 | 开始AI解析 - 原始查询: 你妈
+2025-10-06 18:05:20,403 | 20 | app.services.gemini_service.parse_user_query:90 | AI解析失败 - 错误: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:05:20,403 | 21 | app.services.search_service.search_cars:52 | 搜索流程失败 - 错误: 'ParsedQuery' object has no attribute 'brand'
+2025-10-06 18:05:20,403 | 22 | app.api.routes.search_cars:38 | 搜索失败 - 错误: 搜索过程中发生错误: 'ParsedQuery' object has no attribute 'brand'
+2025-10-06 18:06:36,244 | 1 | app.services.search_service.__init__:9 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:06:36,245 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:06:36,245 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:06:36,245 | 4 | app.services.search_service.__init__:14 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:06:42,143 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:06:42,143 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:06:42,143 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:06:42,143 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:06:46,193 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:06:46,193 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:06:46,193 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:06:46,193 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:06:51,991 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:06:51,991 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:06:51,992 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:06:51,992 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:06:53,825 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:06:53,825 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:06:53,825 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:06:53,825 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:06:58,263 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:06:58,263 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:06:58,263 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:06:58,263 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:07:00,747 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:07:00,747 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:07:00,747 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:07:00,747 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:07:04,926 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:07:04,926 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:07:04,926 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:07:04,926 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:07:17,889 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:07:17,890 | 2 | app.services.gemini_service.__init__:17 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:07:17,890 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:07:17,890 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:07:26,774 | 5 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你妈
+2025-10-06 18:07:26,774 | 6 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 你妈
+2025-10-06 18:07:26,774 | 7 | app.services.gemini_service.parse_user_query:24 | 开始AI解析 - 原始查询: 你妈
+2025-10-06 18:07:26,923 | 8 | app.services.gemini_service.parse_user_query:90 | AI解析失败 - 错误: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:07:26,923 | 9 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 18:07:26,923 | 10 | app.services.cargurus_scraper.search_cars:133 | 开始爬虫搜索 - 查询: None None
+2025-10-06 18:07:49,729 | 11 | app.services.cargurus_scraper.search_cars:158 | 爬虫搜索失败 - 页面加载超时
+2025-10-06 18:07:51,809 | 12 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:07:51,809 | 13 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 18:07:51,809 | 14 | app.api.routes.search_cars:36 | 搜索成功 - 返回0条结果
+2025-10-06 18:07:51,815 | 15 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你妈
+2025-10-06 18:07:51,815 | 16 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 你妈
+2025-10-06 18:07:51,816 | 17 | app.services.gemini_service.parse_user_query:24 | 开始AI解析 - 原始查询: 你妈
+2025-10-06 18:07:51,886 | 18 | app.services.gemini_service.parse_user_query:90 | AI解析失败 - 错误: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:07:51,886 | 19 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 18:07:51,887 | 20 | app.services.cargurus_scraper.search_cars:133 | 开始爬虫搜索 - 查询: None None
+2025-10-06 18:08:14,152 | 21 | app.services.cargurus_scraper.search_cars:158 | 爬虫搜索失败 - 页面加载超时
+2025-10-06 18:08:16,230 | 22 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:08:16,230 | 23 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 18:08:16,231 | 24 | app.api.routes.search_cars:36 | 搜索成功 - 返回0条结果
+2025-10-06 18:09:11,723 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:11,723 | 2 | app.services.gemini_service.__init__:18 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:11,723 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:11,723 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:15,359 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:15,359 | 2 | app.services.gemini_service.__init__:18 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:15,360 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:15,360 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:17,338 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:17,338 | 2 | app.services.gemini_service.__init__:18 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:17,338 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:17,339 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:21,809 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:21,809 | 2 | app.services.gemini_service.__init__:18 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:21,809 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:21,809 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:37,967 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:37,967 | 2 | app.services.gemini_service.__init__:19 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:37,967 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:37,967 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:39,829 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:39,829 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:39,829 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:39,829 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:42,718 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:42,718 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:42,718 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:42,718 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:09:49,687 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:09:49,687 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:09:49,687 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:09:49,687 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:10:37,414 | 5 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你吗
+2025-10-06 18:10:37,414 | 6 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 你吗
+2025-10-06 18:10:37,414 | 7 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: 你吗
+2025-10-06 18:10:37,540 | 8 | app.services.gemini_service.parse_user_query:98 | AI解析失败 - 错误: 404 models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:10:37,540 | 9 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 18:10:37,540 | 10 | app.services.cargurus_scraper.search_cars:133 | 开始爬虫搜索 - 查询: None None
+2025-10-06 18:10:51,863 | 11 | app.services.cargurus_scraper.search_cars:167 | 爬虫搜索失败 - 错误: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2025-10-06 18:11:08,117 | 12 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:11:08,117 | 13 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 18:11:08,117 | 14 | app.api.routes.search_cars:36 | 搜索成功 - 返回0条结果
+2025-10-06 18:11:11,361 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:11:11,361 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:11:11,361 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:11:11,361 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:11:27,918 | 5 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 西八
+2025-10-06 18:11:27,919 | 6 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 西八
+2025-10-06 18:11:27,919 | 7 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: 西八
+2025-10-06 18:11:28,049 | 8 | app.services.gemini_service.parse_user_query:98 | AI解析失败 - 错误: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:11:28,049 | 9 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 18:11:28,049 | 10 | app.services.cargurus_scraper.search_cars:133 | 开始爬虫搜索 - 查询: None None
+2025-10-06 18:12:10,342 | 11 | app.services.cargurus_scraper.search_cars:148 | 爬虫搜索警告 - 主要选择器超时，尝试备用选择器
+2025-10-06 18:12:30,396 | 12 | app.services.cargurus_scraper.search_cars:162 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:12:32,471 | 13 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:12:32,471 | 14 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 18:12:32,472 | 15 | app.api.routes.search_cars:36 | 搜索成功 - 返回0条结果
+2025-10-06 18:12:52,347 | 16 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 凯美瑞
+2025-10-06 18:12:52,348 | 17 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 凯美瑞
+2025-10-06 18:12:52,348 | 18 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: 凯美瑞
+2025-10-06 18:12:52,415 | 19 | app.services.gemini_service.parse_user_query:98 | AI解析失败 - 错误: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-06 18:12:52,415 | 20 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 18:12:52,416 | 21 | app.services.cargurus_scraper.search_cars:133 | 开始爬虫搜索 - 查询: None None
+2025-10-06 18:13:14,114 | 22 | app.services.cargurus_scraper.search_cars:167 | 爬虫搜索失败 - 错误: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2025-10-06 18:13:30,371 | 23 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:13:30,372 | 24 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 18:13:30,372 | 25 | app.api.routes.search_cars:36 | 搜索成功 - 返回0条结果
+2025-10-06 18:13:38,483 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:13:38,484 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:13:38,484 | 3 | app.services.cargurus_scraper.__init__:18 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:13:38,484 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:13:49,807 | 5 | app.api.routes.search_cars:25 | 开始搜索请求 - 用户输入: 你妈
+2025-10-06 18:13:49,808 | 6 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 你妈
+2025-10-06 18:13:49,808 | 7 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: 你妈
+2025-10-06 18:13:50,856 | 8 | app.services.gemini_service.parse_user_query:89 | AI解析成功 - 品牌=None, 车型=None, 年份=None-None
+2025-10-06 18:13:50,856 | 9 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 18:13:50,856 | 10 | app.services.cargurus_scraper.search_cars:133 | 开始爬虫搜索 - 查询: None None
+2025-10-06 18:14:30,730 | 11 | app.services.cargurus_scraper.search_cars:167 | 爬虫搜索失败 - 错误: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2025-10-06 18:14:46,942 | 12 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 18:14:46,942 | 13 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 18:14:46,942 | 14 | app.api.routes.search_cars:36 | 搜索成功 - 返回0条结果
+2025-10-06 18:14:50,245 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:14:50,245 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:14:50,245 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:14:50,246 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:14:52,456 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:14:52,456 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:14:52,456 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:14:52,457 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:06,916 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:06,916 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:06,916 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:06,916 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:09,615 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:09,616 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:09,616 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:09,616 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:11,722 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:11,722 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:11,722 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:11,722 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:13,821 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:13,821 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:13,821 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:13,821 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:16,315 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:16,316 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:16,316 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:16,316 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:18,607 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:18,607 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:18,608 | 3 | app.services.cargurus_scraper.__init__:19 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:18,608 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:20,779 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:20,779 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:20,780 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:20,780 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:24,733 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:24,734 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:24,734 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:24,734 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:31,347 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:31,347 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:31,347 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:31,347 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:33,569 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:33,569 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:33,569 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:33,569 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:37,405 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:37,405 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:37,405 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:37,406 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:41,051 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:41,052 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:41,052 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:41,052 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:47,314 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:47,314 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:47,314 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:47,314 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:50,652 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:50,652 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:50,652 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:50,653 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:15:54,069 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:15:54,069 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:15:54,069 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:15:54,069 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:01,134 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:01,134 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:01,134 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:01,134 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:09,234 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:09,235 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:09,235 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:09,235 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:18,435 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:18,435 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:18,435 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:18,436 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:21,135 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:21,136 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:21,136 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:21,136 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:23,658 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:23,658 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:23,658 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:23,659 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:26,298 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:26,298 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:26,298 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:26,298 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:28,999 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:28,999 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:28,999 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:28,999 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:31,620 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:31,621 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:31,621 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:31,621 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:38,343 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:38,343 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:38,343 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:38,343 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:41,314 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:41,314 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:41,314 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:41,314 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:43,653 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:43,653 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:43,654 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:43,654 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:16:59,271 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:16:59,271 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:16:59,271 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:16:59,272 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:43:37,867 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:43:37,867 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:43:37,867 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:43:37,868 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:43:37,871 | 5 | app.__main__.<module>:19 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 18:43:37,874 | 6 | app.__main__.<module>:54 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 18:43:37,875 | 7 | app.__main__.<module>:55 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 18:43:37,875 | 8 | app.__main__.<module>:56 | 运行模式 - 开发模式
+2025-10-06 18:43:38,766 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 18:43:38,766 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 18:43:38,766 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 18:43:38,766 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 18:44:34,264 | 5 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: 你好
+2025-10-06 18:44:34,264 | 6 | app.api.routes.search_cars:51 | 查询失败 - 查询内容过短
+2025-10-06 19:46:30,801 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 19:46:30,802 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 19:46:30,802 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 19:46:30,802 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 19:46:30,807 | 5 | app.__main__.<module>:19 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 19:46:30,808 | 6 | app.__main__.<module>:54 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 19:46:30,809 | 7 | app.__main__.<module>:55 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 19:46:30,809 | 8 | app.__main__.<module>:56 | 运行模式 - 开发模式
+2025-10-06 19:46:31,584 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 19:46:31,585 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 19:46:31,585 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 19:46:31,585 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 19:47:23,680 | 5 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: 西八
+2025-10-06 19:47:23,680 | 6 | app.api.routes.search_cars:51 | 查询失败 - 查询内容过短
+2025-10-06 19:56:01,747 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 19:56:01,747 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 19:56:01,747 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 19:56:01,747 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 19:56:01,749 | 5 | app.__main__.<module>:19 | 配置验证成功 - 所有环境变量配置正确
+2025-10-06 19:56:01,750 | 6 | app.__main__.<module>:54 | 启动API服务器 - Rehui Car Adviser API服务启动
+2025-10-06 19:56:01,750 | 7 | app.__main__.<module>:55 | 服务地址配置 - http://0.0.0.0:8000
+2025-10-06 19:56:01,750 | 8 | app.__main__.<module>:56 | 运行模式 - 开发模式
+2025-10-06 19:56:02,370 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 19:56:02,370 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 19:56:02,370 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 19:56:02,370 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 19:57:24,765 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 19:57:24,765 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 19:57:24,765 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 19:57:24,766 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 19:57:57,981 | 1 | app.services.search_service.__init__:10 | 搜索服务初始化 - 开始初始化AI解析和爬虫服务
+2025-10-06 19:57:57,981 | 2 | app.services.gemini_service.__init__:21 | Gemini服务初始化完成 - AI模型已就绪
+2025-10-06 19:57:57,981 | 3 | app.services.cargurus_scraper.__init__:21 | 爬虫服务初始化 - CarGurus爬虫已就绪
+2025-10-06 19:57:57,981 | 4 | app.services.search_service.__init__:15 | 搜索服务初始化完成 - 所有组件已就绪
+2025-10-06 20:15:15,684 | 5 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: 你妈
+2025-10-06 20:15:15,684 | 6 | app.api.routes.search_cars:43 | 查询失败 - 无效查询内容: 你妈
+2025-10-06 20:17:36,783 | 7 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: 你妈
+2025-10-06 20:17:36,783 | 8 | app.api.routes.search_cars:43 | 查询失败 - 无效查询内容: 你妈
+2025-10-06 20:20:43,366 | 9 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: nima
+2025-10-06 20:20:43,367 | 10 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: nima
+2025-10-06 20:20:43,367 | 11 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: nima
+2025-10-06 20:20:47,505 | 12 | app.services.gemini_service.parse_user_query:89 | AI解析成功 - 品牌=None, 车型=None, 年份=None-None
+2025-10-06 20:20:47,505 | 13 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 20:20:47,505 | 14 | app.services.cargurus_scraper.search_cars:190 | 开始爬虫搜索 - 查询: None None
+2025-10-06 20:20:50,945 | 15 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:20:50,945 | 16 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第1次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:20:50,946 | 17 | app.services.cargurus_scraper.search_cars:200 | 爬虫重试 - 第2次尝试
+2025-10-06 20:20:55,590 | 18 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:20:55,590 | 19 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第2次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:20:55,591 | 20 | app.services.cargurus_scraper.search_cars:200 | 爬虫重试 - 第3次尝试
+2025-10-06 20:21:02,239 | 21 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:21:02,239 | 22 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第3次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:21:02,239 | 23 | app.services.cargurus_scraper.search_cars:262 | 爬虫搜索失败 - 所有重试失败，最终错误: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:21:02,240 | 24 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 20:21:02,240 | 25 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 20:21:02,240 | 26 | app.api.routes.search_cars:61 | 搜索成功 - 返回0条结果
+2025-10-06 20:38:17,787 | 27 | app.api.routes.search_cars:27 | 开始搜索请求 - 用户输入: 好像可以了
+2025-10-06 20:38:17,788 | 28 | app.services.search_service.search_cars:22 | 开始车源搜索流程 - 用户查询: 好像可以了
+2025-10-06 20:38:17,788 | 29 | app.services.gemini_service.parse_user_query:28 | 开始AI解析 - 原始查询: 好像可以了
+2025-10-06 20:38:19,577 | 30 | app.services.gemini_service.parse_user_query:89 | AI解析成功 - 品牌=None, 车型=None, 年份=None-None
+2025-10-06 20:38:19,577 | 31 | app.services.search_service.search_cars:28 | AI解析成功 - 品牌=None, 车型=None
+2025-10-06 20:38:19,578 | 32 | app.services.cargurus_scraper.search_cars:190 | 开始爬虫搜索 - 查询: None None
+2025-10-06 20:38:22,230 | 33 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:22,230 | 34 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第1次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:22,230 | 35 | app.services.cargurus_scraper.search_cars:200 | 爬虫重试 - 第2次尝试
+2025-10-06 20:38:26,873 | 36 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:26,873 | 37 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第2次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:26,873 | 38 | app.services.cargurus_scraper.search_cars:200 | 爬虫重试 - 第3次尝试
+2025-10-06 20:38:33,527 | 39 | app.services.cargurus_scraper._setup_driver:52 | 爬虫初始化失败 - WebDriver设置失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:33,527 | 40 | app.services.cargurus_scraper.search_cars:258 | 爬虫搜索失败 - 第3次尝试失败: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:33,528 | 41 | app.services.cargurus_scraper.search_cars:262 | 爬虫搜索失败 - 所有重试失败，最终错误: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6cf601eb5+80197]
+	GetHandleVerifier [0x0x7ff6cf601f10+80288]
+	(No symbol) [0x0x7ff6cf3802fa]
+	(No symbol) [0x0x7ff6cf3bf87b]
+	(No symbol) [0x0x7ff6cf3b9bd0]
+	(No symbol) [0x0x7ff6cf40e0ef]
+	(No symbol) [0x0x7ff6cf40d870]
+	(No symbol) [0x0x7ff6cf400153]
+	(No symbol) [0x0x7ff6cf3c8b02]
+	(No symbol) [0x0x7ff6cf3c98d3]
+	GetHandleVerifier [0x0x7ff6cf8be83d+2949837]
+	GetHandleVerifier [0x0x7ff6cf8b8c6a+2926330]
+	GetHandleVerifier [0x0x7ff6cf8d86c7+3055959]
+	GetHandleVerifier [0x0x7ff6cf61cfee+191102]
+	GetHandleVerifier [0x0x7ff6cf6250af+224063]
+	GetHandleVerifier [0x0x7ff6cf60af64+117236]
+	GetHandleVerifier [0x0x7ff6cf60b119+117673]
+	GetHandleVerifier [0x0x7ff6cf5f10a8+11064]
+	BaseThreadInitThunk [0x0x7ff9e991e8d7+23]
+	RtlUserThreadStart [0x0x7ff9eb128d9c+44]
+
+2025-10-06 20:38:33,528 | 42 | app.services.search_service.search_cars:35 | 爬虫搜索完成 - 找到0辆车源
+2025-10-06 20:38:33,528 | 43 | app.services.search_service.search_cars:47 | 搜索流程完成 - 未找到匹配的车源
+2025-10-06 20:38:33,528 | 44 | app.api.routes.search_cars:61 | 搜索成功 - 返回0条结果

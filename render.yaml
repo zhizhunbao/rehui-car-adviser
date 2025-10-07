@@ -1,0 +1,40 @@
+services:
+  # 后端服务
+  - type: web
+    name: rehui-car-adviser-backend
+    env: python
+    plan: free
+    buildCommand: |
+      cd backend
+      pip install -r requirements.txt
+    startCommand: |
+      cd backend
+      python main.py
+    envVars:
+      - key: GOOGLE_GEMINI_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DEBUG
+        value: "False"
+    healthCheckPath: /health
+
+  # 前端服务
+  - type: web
+    name: rehui-car-adviser-frontend
+    env: static
+    plan: free
+    buildCommand: |
+      cd frontend
+      npm install
+      npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://rehui-car-adviser-backend.onrender.com
