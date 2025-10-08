@@ -190,8 +190,7 @@ class CarGurusDataSaver:
     def __init__(self, output_dir: Path):
         self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
-    
-    
+
     async def save_models_data(self, models: List[Dict[str, str]], brand_name: str, date_str: str, 
                               city: str = "toronto", zip_code: str = "M5V", distance: int = 100):
         """保存车型数据到文件 - 简化格式"""
@@ -230,9 +229,6 @@ class CarGurusDataSaver:
         except Exception as e:
             logger.log_result("保存车型数据失败", f"保存时出错: {str(e)}")
             raise
-    
-
-
 
 
 # =============================================================================
@@ -602,8 +598,7 @@ class CarGurusModelCollector:
                 logger.log_result("车型收集", f"硬编码车型: {brand_name} {model['name']}")
         
         return models
-    
-    
+
     def _simulate_human_behavior(self, driver):
         """模拟人类浏览行为"""
         try:
@@ -718,11 +713,11 @@ class CarGurusCarSearcher:
         else:
                 logger.log_result("验证码处理", "滑块验证码处理失败")
         return False
-    
+
+
 # =============================================================================
 # 主爬虫协调器
 # =============================================================================
-
 
 class CarGurusCrawler:
     """CarGurus 主爬虫协调器 - 重构版本"""
@@ -778,8 +773,7 @@ class CarGurusCrawler:
             车源列表
         """
         return await self.car_searcher.search_cars(parsed_query, max_results)
-    
-    
+
     async def collect_models_for_brand(self, brand_name: str, limit: int = None) -> List[Dict[str, str]]:
         """收集指定品牌的车型数据"""
         return await self.model_collector.collect_models_for_brand(brand_name, limit)
