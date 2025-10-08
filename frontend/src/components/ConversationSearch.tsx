@@ -8,6 +8,16 @@ const ConversationSearch: React.FC = () => {
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // 快速问题示例
+  const quickQuestions = [
+    "我想买一辆2020年左右的丰田凯美瑞，预算3万加元",
+    "帮我找一辆本田雅阁，2018-2022年，里程不超过10万公里",
+    "寻找宝马X3，价格在4万加元以下，在多伦多",
+    "3万预算能买什么车？",
+    "2020年的丰田车有哪些选择？",
+    "10万公里以内的二手车推荐"
+  ];
+
   // 自动滚动到底部
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -34,6 +44,16 @@ const ConversationSearch: React.FC = () => {
     setInputMessage('');
   };
 
+  const handleQuickQuestion = async (question: string) => {
+    if (isLoading) return;
+
+    // 记录用户交互日志
+    logger.logResult("用户点击快速问题", `问题: ${question.substring(0, 50)}...`);
+    
+    // 发送快速问题
+    await sendMessage(question);
+  };
+
   return (
     <div className="conversation-search">
       {/* 主内容区域 */}
@@ -45,6 +65,23 @@ const ConversationSearch: React.FC = () => {
               <div className="welcome-content">
                 <h1 className="welcome-title">What can I help you find?</h1>
                 <p className="welcome-subtitle">告诉我您的购车需求，我会帮您找到合适的车源</p>
+                
+                {/* 快速问题示例 */}
+                <div className="quick-questions">
+                  <h3 className="quick-questions-title">快速开始：</h3>
+                  <div className="quick-questions-grid">
+                    {quickQuestions.map((question, index) => (
+                      <button
+                        key={index}
+                        className="quick-question-btn"
+                        onClick={() => handleQuickQuestion(question)}
+                        disabled={isLoading}
+                      >
+                        {question}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ) : (

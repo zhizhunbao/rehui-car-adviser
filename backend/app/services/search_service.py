@@ -2,7 +2,7 @@ from app.models.schemas import (
     SearchRequest, SearchResponse, ConversationRequest, ConversationResponse
 )
 from app.services.gemini_service import GeminiService
-from app.services.cargurus_scraper import CarGurusScraper
+from app.services.cargurus_crawler import CarGurusCrawler
 from app.services.conversation_service import ConversationService
 from app.utils.logger import logger
 
@@ -14,7 +14,7 @@ class SearchService:
 
         self.gemini_service = GeminiService()
         self.conversation_service = ConversationService()
-        self.cargurus_scraper = CarGurusScraper()
+        self.cargurus_crawler = CarGurusCrawler()
 
         logger.log_result("搜索服务初始化完成", "所有组件已就绪")
 
@@ -34,7 +34,7 @@ class SearchService:
                               f"车型={parsed_query.model}")
 
             # 关键部位日志：外部调用 - 爬虫搜索
-            cars = await self.cargurus_scraper.search_cars(
+            cars = await self.cargurus_crawler.search_cars(
                 parsed_query, max_results=20)
             logger.log_result("爬虫搜索完成", f"找到{len(cars)}辆车源")
 
@@ -80,7 +80,7 @@ class SearchService:
                 logger.log_result("AI建议搜索车源", "开始执行车源搜索")
 
                 # 执行车源搜索
-                search_result = await self.cargurus_scraper.search_cars(
+                search_result = await self.cargurus_crawler.search_cars(
                     conversation_response.search_params,
                     max_results=20
                 )

@@ -87,7 +87,8 @@ class ConversationService:
         使用Gemini生成AI回复
         """
         # 关键部位日志：外部调用 - AI API
-        logger.log_result("开始AI对话生成", f"用户消息: {user_message[:50]}...")
+        model_name = self.gemini_service.model_name
+        logger.log_result("开始AI对话生成", f"使用模型: {model_name}, 用户消息: {user_message[:50]}...")
 
         # 构建对话上下文
         context = self._build_conversation_context(conversation_history)
@@ -103,8 +104,8 @@ class ConversationService:
 
 回复要求：
 1. 用友好、专业的语气回复
-2. 如果用户需求不够明确，主动询问关键信息（预算、品牌偏好、车型、年份、里程等）
-3. 如果用户需求已经明确，确认后建议搜索车源
+2. 如果用户表达了明确的购车需求（包含品牌、车型、年份、预算等关键信息中的2-3个），立即搜索车源
+3. 如果用户需求不够明确，主动询问关键信息（预算、品牌偏好、车型、年份、里程等）
 4. 如果用户只是在闲聊或询问一般问题，不要建议搜索
 
 回复格式（JSON）：
@@ -124,7 +125,7 @@ class ConversationService:
 }}
 
 注意：
-- 只有当用户明确表达购车需求且信息相对完整时才设置 should_search: true
+- 当用户明确表达购车需求且包含关键信息（品牌、车型、年份、预算等）中的2-3个时，立即设置 should_search: true
 - 价格请转换为数字（如 "3万加元" 转换为 30000）
 - 年份请转换为数字
 - 里程请转换为数字（如 "10万公里" 转换为 100000）
@@ -132,6 +133,8 @@ class ConversationService:
 """
 
         try:
+            # 关键部位日志：外部调用 - AI API 调用
+            logger.log_result("调用Gemini API", f"模型: {model_name}, 提示词长度: {len(prompt)}")
             response = self.gemini_service.model.generate_content(prompt)
             response_text = response.text.strip()
 
@@ -161,7 +164,7 @@ class ConversationService:
             # 关键部位日志：状态变化 - AI回复生成
             logger.log_result(
                 "AI对话生成成功",
-                f"回复长度: {len(result['message'])}, 需要搜索: {result.get('should_search', False)}"
+                f"模型: {model_name}, 回复长度: {len(result['message'])}, 需要搜索: {result.get('should_search', False)}"
             )
 
             return {
@@ -172,7 +175,7 @@ class ConversationService:
 
         except Exception as e:
             # 关键部位日志：错误处理
-            logger.log_result("AI对话生成失败", f"错误: {str(e)}")
+            logger.log_result("AI对话生成失败", f"模型: {model_name}, 错误: {str(e)}")
             return {
                 "message": "抱歉，我现在无法理解您的需求。请告诉我您想买什么样的车？",
                 "should_search": False,

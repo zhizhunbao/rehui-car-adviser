@@ -1,15 +1,12 @@
 import json
-import os
 import warnings
-import google.generativeai as genai
 from app.models.schemas import ParsedQuery
 from app.utils.config import Config
 from app.utils.logger import logger
 
-# 抑制 Google 库的警告
-os.environ["GRPC_VERBOSITY"] = "ERROR"
-os.environ["GRPC_TRACE"] = ""
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+# 导入 Google AI 库
+import google.generativeai as genai
+
 # 抑制 Python warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -27,15 +24,16 @@ class GeminiService:
         
         genai.configure(api_key=api_key)
         # 使用 Gemini 2.5 Flash 模型（2025年最新，免费，更快）
-        self.model = genai.GenerativeModel('gemini-2.5-flash')
-        logger.log_result("Gemini服务初始化完成", "AI模型已就绪")
+        self.model_name = 'gemini-2.5-flash'
+        self.model = genai.GenerativeModel(self.model_name)
+        logger.log_result("Gemini服务初始化完成", f"AI模型已就绪 - 使用模型: {self.model_name}")
     
     async def parse_user_query(self, query: str) -> ParsedQuery:
         """
         使用 Gemini API 解析用户查询，提取购车需求
         """
         # 关键部位日志：外部调用 - AI API
-        logger.log_result("开始AI解析", f"原始查询: {query}")
+        logger.log_result("开始AI解析", f"使用模型: {self.model_name}, 原始查询: {query}")
         
         prompt = f"""
         请解析以下用户的购车需求，提取关键信息并返回JSON格式。
@@ -73,6 +71,8 @@ class GeminiService:
         """
         
         try:
+            # 关键部位日志：外部调用 - AI API 调用
+            logger.log_result("调用Gemini API", f"模型: {self.model_name}, 提示词长度: {len(prompt)}")
             response = self.model.generate_content(prompt)
             response_text = response.text.strip()
             
@@ -98,14 +98,14 @@ class GeminiService:
             # 关键部位日志：状态变化 - 解析结果
             logger.log_result(
                 "AI解析成功",
-                f"品牌={result.make}, 车型={result.model}, "
+                f"模型: {self.model_name}, 品牌={result.make}, 车型={result.model}, "
                 f"年份={result.year_min}-{result.year_max}"
             )
             return result
             
         except Exception as e:
             # 关键部位日志：错误处理
-            logger.log_result("AI解析失败", f"错误: {str(e)}")
+            logger.log_result("AI解析失败", f"模型: {self.model_name}, 错误: {str(e)}")
             # 返回默认解析结果
             fallback_result = ParsedQuery(keywords=[query])
             return fallback_result

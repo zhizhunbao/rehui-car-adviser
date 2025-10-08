@@ -140,11 +140,30 @@ class EnhancedLogger {
 
   private getTimestamp(): string {
     const now = new Date();
-    return now.toISOString().replace('T', ' ').substring(0, 19);
+    // 使用本地时间而不是UTC时间
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   }
 
   private async sendToBackend(entry: LogEntry): Promise<void> {
     try {
+      // 创建唯一的日志键，避免重复发送
+      const logKey = `${entry.timestamp}-${entry.sequence}-${entry.message}`;
+      
+      // 检查是否已经发送过这条日志
+      if (this.loggedMessages.has(logKey)) {
+        return;
+      }
+      
+      // 标记为已发送
+      this.loggedMessages.add(logKey);
+      
       await fetch(`${this.apiBaseUrl}/api/logs/frontend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -160,11 +179,14 @@ class EnhancedLogger {
   logResult(conclusion: string, reason: string = ''): void {
     const message = reason ? `${conclusion} - ${reason}` : conclusion;
     
-    // 防止重复日志 - 使用简单的消息作为key，避免重复调用getCallStack
-    if (this.loggedMessages.has(message)) {
+    // 防止重复日志 - 使用时间戳+消息作为key，确保唯一性
+    const timestamp = this.getTimestamp();
+    const logKey = `${timestamp}-${message}`;
+    
+    if (this.loggedMessages.has(logKey)) {
       return;
     }
-    this.loggedMessages.add(message);
+    this.loggedMessages.add(logKey);
     
     log.info(message);
   }
@@ -210,7 +232,7 @@ const enhancedLogger = new EnhancedLogger();
 export { enhancedLogger as logger };
 export default enhancedLogger;
 
-// 在开发环境下暴露到全局对象
+  // 在开发环境下暴露到全局对象
 if (import.meta.env.DEV) {
   (window as any).logger = enhancedLogger;
   (window as any).clearLogs = () => enhancedLogger.clearLoggedMessages();

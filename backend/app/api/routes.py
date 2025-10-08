@@ -135,14 +135,9 @@ async def receive_frontend_log(log_request: FrontendLogRequest):
     遵循设计文档规范：时间戳 | 执行序号 | 包名.方法名:行号 | 结论 - 原因
     """
     # 将前端日志写入文件
-    import os
-    # 获取backend目录下的logs文件夹
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    backend_dir = os.path.dirname(current_dir)
-    logs_dir = os.path.join(backend_dir, 'logs')
-    os.makedirs(logs_dir, exist_ok=True)
+    from app.utils.path_util import get_frontend_log_path
     
-    frontend_log_path = os.path.join(logs_dir, 'frontend.log')
+    frontend_log_path = get_frontend_log_path()
     with open(frontend_log_path, 'a', encoding='utf-8') as f:
         # 遵循设计文档格式：时间戳 | 执行序号 | 包名.方法名:行号 | 结论 - 原因
         f.write(

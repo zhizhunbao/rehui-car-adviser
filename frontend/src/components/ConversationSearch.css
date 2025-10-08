@@ -56,7 +56,73 @@
 .welcome-subtitle {
   font-size: 16px;
   color: #666;
-  margin: 0;
+  margin: 0 0 32px 0;
+}
+
+/* 快速问题样式 */
+.quick-questions {
+  margin-top: 32px;
+}
+
+.quick-questions-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.quick-questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quick-question-btn {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  line-height: 1.4;
+  word-wrap: break-word;
+  white-space: normal;
+  direction: ltr !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  unicode-bidi: normal !important;
+  text-align: left !important;
+  text-align-last: left !important;
+  text-indent: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+.quick-question-btn:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #dee2e6;
+  color: #212529;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.quick-question-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.quick-question-btn:disabled {
+  background: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* 消息列表 */
@@ -378,6 +444,16 @@
 @media (max-width: 768px) {
   .welcome-title {
     font-size: 24px;
+  }
+
+  .quick-questions-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .quick-question-btn {
+    font-size: 13px;
+    padding: 10px 14px;
   }
 
   .messages-container {

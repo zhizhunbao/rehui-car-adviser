@@ -7,35 +7,21 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router
 from app.utils.config import Config
 
-# 设置环境变量来抑制 Google 库的警告
+# 设置环境变量来抑制第三方库的警告和日志
 os.environ["GRPC_VERBOSITY"] = "ERROR"
 os.environ["GRPC_TRACE"] = ""
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"  # 改为3，完全抑制
+os.environ["GLOG_minloglevel"] = "3"      # Google Logging
+os.environ["ABSL_LOG_LEVEL"] = "ERROR"    # Abseil
 os.environ["PYTHONWARNINGS"] = "ignore"
+os.environ["GOOGLE_CLOUD_PROJECT"] = ""
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = ""
 
 # 抑制所有警告
 warnings.filterwarnings("ignore")
 
-# 重定向 stderr 来抑制 Google 库的初始化警告
-class SuppressStderr:
-    def __init__(self):
-        self.stderr = sys.stderr
-    
-    def write(self, message):
-        # 只过滤掉 Google 相关的警告
-        if any(keyword in message for keyword in [
-            "WARNING: All log messages before absl::InitializeLog()",
-            "ALTS creds ignored",
-            "absl::InitializeLog"
-        ]):
-            return
-        self.stderr.write(message)
-    
-    def flush(self):
-        self.stderr.flush()
+# 立即导入 stderr 抑制器来抑制 Google AI 库的输出
 
-# 临时重定向 stderr
-sys.stderr = SuppressStderr()
 
 app = FastAPI(
     title="Rehui Car Adviser API",
@@ -79,10 +65,14 @@ if __name__ == "__main__":
     # 检查是否在开发环境
     is_development = os.getenv("ENVIRONMENT", "development") == "development"
     
+    # 导入我们的日志器来初始化全局日志控制
+    from app.utils.logger import logger  # noqa: F401
+
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
         port=8000,
         reload=is_development,
-        log_level="warning"
+        log_level="warning",
+        access_log=False  # 禁用访问日志
     )
