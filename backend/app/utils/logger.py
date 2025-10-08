@@ -81,6 +81,7 @@ class KeyPointLogger:
         })
 
 
+
 # 全局实例
 logger = KeyPointLogger()
 
