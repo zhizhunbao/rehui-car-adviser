@@ -4,6 +4,7 @@ pydantic==2.5.0
 python-dotenv==1.0.0
 requests==2.31.0
 selenium==4.15.2
+undetected-chromedriver==3.5.4
 beautifulsoup4==4.12.2
 supabase==2.3.0
 google-generativeai==0.8.5
@@ -11,3 +12,6 @@ python-multipart==0.0.6
 httpx>=0.24.0,<0.25.0
 colorama==0.4.6
 aiofiles==23.2.1
+sqlalchemy==2.0.23
+psycopg2==2.9.10
+asyncpg==0.29.0

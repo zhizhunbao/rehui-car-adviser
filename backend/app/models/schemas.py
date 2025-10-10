@@ -1,10 +1,13 @@
-from pydantic import BaseModel, Field
-from typing import List, Optional
 from datetime import datetime
+from typing import List, Optional
+
+from pydantic import BaseModel, Field
 
 
 class SearchRequest(BaseModel):
-    query: str = Field(..., description="用户搜索查询", min_length=1, max_length=500)
+    query: str = Field(
+        ..., description="用户搜索查询", min_length=1, max_length=500
+    )
 
 
 class CarListing(BaseModel):
@@ -31,7 +34,8 @@ class ParsedQuery(BaseModel):
     model: Optional[str] = Field(None, description="型号")
     year_min: Optional[int] = Field(None, description="最小年份")
     year_max: Optional[int] = Field(None, description="最大年份")
-    price_max: Optional[float] = Field(None, description="最大价格")
+    price_min: Optional[int] = Field(None, description="最小价格")
+    price_max: Optional[int] = Field(None, description="最大价格")
     mileage_max: Optional[int] = Field(None, description="最大里程")
     location: Optional[str] = Field(None, description="位置")
     keywords: List[str] = Field(default_factory=list, description="关键词")
@@ -39,7 +43,9 @@ class ParsedQuery(BaseModel):
 
 # 对话式搜索相关模型
 class ConversationRequest(BaseModel):
-    message: str = Field(..., description="用户消息", min_length=1, max_length=1000)
+    message: str = Field(
+        ..., description="用户消息", min_length=1, max_length=1000
+    )
     session_id: Optional[str] = Field(None, description="会话ID")
     conversation_history: Optional[List[dict]] = Field(
         default_factory=list, description="对话历史"
@@ -50,7 +56,9 @@ class ConversationResponse(BaseModel):
     success: bool = Field(..., description="请求是否成功")
     message: str = Field(..., description="AI回复消息")
     session_id: str = Field(..., description="会话ID")
-    conversation_history: List[dict] = Field(..., description="更新后的对话历史")
+    conversation_history: List[dict] = Field(
+        ..., description="更新后的对话历史"
+    )
     should_search: bool = Field(False, description="是否需要搜索车源")
     search_params: Optional[ParsedQuery] = Field(None, description="搜索参数")
     error: Optional[str] = Field(None, description="错误信息")

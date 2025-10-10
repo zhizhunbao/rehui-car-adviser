@@ -1,14 +1,15 @@
 import os
+
 import uvicorn
+from app.api.routes import router
+from app.utils.core.config import Config
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import router
-from app.utils.config import Config
 
 app = FastAPI(
     title="Rehui Car Adviser API",
     description="智能搜车顾问后端API",
-    version="1.0.0"
+    version="1.0.0",
 )
 
 # 验证配置
@@ -48,13 +49,13 @@ if __name__ == "__main__":
     is_development = os.getenv("ENVIRONMENT", "development") == "development"
 
     # 导入我们的日志器来初始化全局日志控制
-    from app.utils.logger import logger  # noqa: F401
+    from app.utils.core.logger import logger  # noqa: F401
 
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
         port=8000,
         reload=is_development,
-        log_level="warning",
-        access_log=False  # 禁用访问日志
+        log_level="info",  # 改为info级别，这样可以看到INFO级别的日志
+        access_log=False,  # 禁用访问日志
     )
