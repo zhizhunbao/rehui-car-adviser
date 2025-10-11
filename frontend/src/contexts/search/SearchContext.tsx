@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { CarListing, SearchContextType } from '../types';
-import { searchCars } from '../services/api';
-import { logger } from '../utils/logger.js';
+import { CarListing, SearchContextType } from '../../types';
+import { searchCars } from '../../services/api';
+import { logger } from '../../utils/logger.js';
 
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 

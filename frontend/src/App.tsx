@@ -1,7 +1,6 @@
 import React from 'react';
-import { SearchProvider } from './contexts/SearchContext';
-import { ConversationProvider } from './contexts/ConversationContext';
-import ConversationSearch from './components/ConversationSearch';
+import { SearchProvider, ConversationProvider, AppProvider } from './contexts';
+import ConversationSearch from './components/features/ConversationSearch';
 import { logger } from './utils/logger';
 
 const App: React.FC = () => {
@@ -9,12 +8,13 @@ const App: React.FC = () => {
   logger.logResult("应用启动", "Rehui Car Adviser 前端应用初始化");
 
   return (
-    <ConversationProvider>
-      <SearchProvider>
-        <div className="app-container">
-          <ConversationSearch />
-        </div>
-        <style jsx="true" global="true">{`
+    <AppProvider>
+      <ConversationProvider>
+        <SearchProvider>
+          <div className="app-container">
+            <ConversationSearch />
+          </div>
+          <style>{`
           * {
             margin: 0;
             padding: 0;
@@ -52,8 +52,9 @@ const App: React.FC = () => {
             unicode-bidi: normal !important;
           }
         `}</style>
-      </SearchProvider>
-    </ConversationProvider>
+        </SearchProvider>
+      </ConversationProvider>
+    </AppProvider>
   );
 };
 

@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useConversation } from '../contexts/ConversationContext';
-import { logger } from '../utils/logger.js';
-import './ConversationSearch.css';
+import { useConversation } from '../../contexts';
+import { logger } from '../../utils/logger.js';
+import RealtimeMessageDisplay from './RealtimeMessageDisplay';
+import '../../styles/components.css';
 
 const ConversationSearch: React.FC = () => {
-  const { messages, isLoading, error, sendMessage } = useConversation();
+  const { messages, isLoading, error, sendMessage, realtimeMessages } = useConversation();
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -86,6 +87,14 @@ const ConversationSearch: React.FC = () => {
             </div>
           ) : (
             <div className="messages-container">
+              {/* 实时消息显示 - 移动到消息容器内部 */}
+              <RealtimeMessageDisplay 
+                messages={realtimeMessages}
+                maxMessages={20}
+                autoScroll={true}
+                className="conversation-realtime-messages"
+              />
+              
               {messages.map((message, index) => (
                 <div
                   key={index}
