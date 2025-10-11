@@ -1,5 +1,6 @@
 import json
 import uuid
+from datetime import datetime
 from typing import Dict, List
 
 from app.models.schemas import (
@@ -43,7 +44,7 @@ class ConversationService:
 
             # 添加用户消息到历史
             user_message = ConversationMessage(
-                role="user", content=request.message
+                role="user", content=request.message, timestamp=datetime.now()
             )
             conversation_history.append(user_message)
 
@@ -54,7 +55,7 @@ class ConversationService:
 
             # 添加AI回复到历史
             assistant_message = ConversationMessage(
-                role="assistant", content=ai_response["message"]
+                role="assistant", content=ai_response["message"], timestamp=datetime.now()
             )
             conversation_history.append(assistant_message)
 
@@ -70,9 +71,7 @@ class ConversationService:
                 success=True,
                 message=ai_response["message"],
                 session_id=session_id,
-                conversation_history=[
-                    msg.dict() for msg in conversation_history
-                ],
+                conversation_history=conversation_history,
                 should_search=ai_response.get("should_search", False),
                 search_params=ai_response.get("search_params"),
             )

@@ -287,7 +287,7 @@ class CarSelectionUtils:
             score += 0.2
         if car.mileage and car.mileage.strip():
             score += 0.1
-        if car.city and car.city.strip():
+        if car.location and car.location.strip():
             score += 0.1
 
         return score

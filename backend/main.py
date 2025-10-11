@@ -2,6 +2,7 @@ import os
 
 import uvicorn
 from app.api.routes import router
+from app.api.websocket import router as websocket_router
 from app.utils.core.config import Config
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -32,6 +33,9 @@ app.add_middleware(
 
 # Include API routes
 app.include_router(router, prefix="/api")
+
+# Include WebSocket routes
+app.include_router(websocket_router, prefix="/api")
 
 
 @app.get("/")

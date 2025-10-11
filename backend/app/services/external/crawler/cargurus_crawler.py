@@ -23,7 +23,6 @@ from app.utils.validation.page_detection_utils import (
 )
 from app.utils.web.behavior_simulator_utils import simulate_human_behavior
 from app.utils.web.browser_utils import browser_utils
-from app.utils.web.captcha_utils import has_captcha, solve_captcha
 from app.utils.web.dead_link_utils import is_dead_link
 from app.utils.web.url_builder_utils import build_cargurus_search_url
 
@@ -63,14 +62,6 @@ class CarGurusCarSearcher:
                 if is_blocked_page(driver.page_source):
                     logger.log_result("页面检测", "页面被封禁")
                     return []
-
-                # 处理验证码
-                if has_captcha(driver):
-                    logger.log_result("验证码检测", "发现验证码，尝试处理")
-                    success = await solve_captcha(driver, max_attempts=1)
-                    if not success:
-                        logger.log_result("验证码处理", "验证码处理失败")
-                        return []
 
                 # 模拟人类行为
                 simulate_human_behavior(driver)
@@ -154,7 +145,7 @@ async def main():
         )
 
         # 搜索车源
-        cars = await searcher.search_cars(query, max_results=10)
+        cars = await searcher.search_cars(query)
 
         if cars:
             logger.log_result("搜索结果", f"成功找到 {len(cars)} 辆车源")

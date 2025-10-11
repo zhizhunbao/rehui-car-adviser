@@ -4,7 +4,6 @@
 from .behavior_simulator_utils import *
 from .browser_utils import BrowserUtils, browser_utils
 from .button_click_utils import *
-from .captcha_utils import *
 from .dead_link_utils import *
 from .driver_utils import *
 from .url_builder_utils import *
