@@ -92,7 +92,6 @@ class SearchService:
             # 生成带时间戳的profile名称
             profile_name = generate_daily_profile_name("search_profile")
             self._cargurus_crawler = CargurusCrawlerCoordinator(
-                date_str="search",
                 make_name=make_name,
                 zip_code=zip_code,
                 profile_name=profile_name,
@@ -177,7 +176,7 @@ class SearchService:
             crawler = self._get_cargurus_crawler(
                 make_name=parsed_query.make, zip_code=search_location
             )
-            cars = await crawler.search_cars(parsed_query, max_results=20)
+            cars = await crawler.search_cars(parsed_query)
             logger.log_result("爬虫搜索完成", f"找到{len(cars)}辆车源")
 
             # 关键部位日志：状态变化 - 返回结果
@@ -317,7 +316,7 @@ class SearchService:
                 make_name=parsed_query.make, zip_code="M5V"  # 默认多伦多
             )
 
-            cars = await crawler.search_cars(parsed_query, max_results=50)
+            cars = await crawler.search_cars(parsed_query)
             logger.log_result("爬取完成", f"爬取了{len(cars)}辆车源")
 
             if cars:
@@ -384,7 +383,7 @@ class SearchService:
             parsed_query = ParsedQuery(make=make_name)
 
             # 爬取车源数据
-            cars = await crawler.search_cars(parsed_query, max_results=100)
+            cars = await crawler.search_cars(parsed_query)
             logger.log_result("爬取完成", f"爬取了{len(cars)}辆车源")
 
             if cars:
@@ -465,7 +464,7 @@ class SearchService:
                     zip_code=search_location,
                 )
                 search_result = await crawler.search_cars(
-                    conversation_response.search_params, max_results=20
+                    conversation_response.search_params
                 )
 
                 # 更新对话响应，添加搜索结果

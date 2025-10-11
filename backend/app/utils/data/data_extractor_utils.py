@@ -6,9 +6,36 @@
 """
 
 import re
-from typing import Dict, Optional
-from selenium.webdriver.remote.webelement import WebElement
+from typing import Dict, List, Optional
+
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
+
+
+def safe_text_multiple_selectors(
+    element: WebElement, selectors: List[str]
+) -> str:
+    """
+    使用多个选择器安全提取文本
+
+    Args:
+        element: WebElement对象
+        selectors: 选择器列表
+
+    Returns:
+        提取到的文本，如果没有找到则返回空字符串
+    """
+    for selector in selectors:
+        try:
+            elements = element.find_elements(By.XPATH, selector)
+            if elements:
+                text = elements[0].text.strip()
+                if text:
+                    return text
+        except Exception:
+            continue
+    return ""
 
 
 def extract_listing_data(listing: WebElement) -> Dict[str, str]:
@@ -26,23 +53,93 @@ def extract_listing_data(listing: WebElement) -> Dict[str, str]:
     """
     data = {}
 
-    # 提取标题
-    data['title'] = safe_text(listing, ".//h3[@class='title']")
+    # 提取标题 - 使用CarGurus实际的选择器
+    title_selectors = [
+        ".//div[@data-testid='srp-tile-listing-title']//h4",
+        ".//h4[@data-cg-ft='srp-listing-blade-title']",
+        ".//h4[contains(@class, '_titleText_')]",
+        ".//div[contains(@class, 'title')]",
+        ".//h3[@class='title']",
+        ".//h3",
+        ".//h2",
+        ".//h1",
+        ".//span[contains(@class, 'title')]",
+        ".//a[contains(@class, 'title')]",
+    ]
+    data["title"] = safe_text_multiple_selectors(listing, title_selectors)
 
-    # 提取价格
-    data['price'] = safe_text(listing, ".//span[@class='price']")
+    # 提取价格 - 使用CarGurus实际的选择器
+    price_selectors = [
+        ".//h4[@data-testid='srp-tile-price']",
+        ".//h4[@data-cg-ft='srp-listing-blade-price']",
+        ".//h4[contains(@class, '_priceText_')]",
+        ".//span[contains(text(), '$')]",
+        ".//div[contains(text(), '$')]",
+        ".//span[@class='price']",
+        ".//span[contains(@class, 'price')]",
+        ".//div[contains(@class, 'price')]",
+    ]
+    data["price"] = safe_text_multiple_selectors(listing, price_selectors)
 
-    # 提取里程
-    data['mileage'] = safe_text(listing, ".//span[@class='mileage']")
+    # 提取里程 - 使用CarGurus实际的选择器
+    mileage_selectors = [
+        ".//p[@data-testid='srp-tile-mileage']",
+        ".//p[contains(@class, '_leftColumnContent_')]",
+        ".//span[contains(text(), 'km')]",
+        ".//div[contains(text(), 'km')]",
+        ".//span[contains(text(), 'mile')]",
+        ".//div[contains(text(), 'mile')]",
+        ".//span[@class='mileage']",
+        ".//span[contains(@class, 'mileage')]",
+        ".//div[contains(@class, 'mileage')]",
+    ]
+    data["mileage"] = safe_text_multiple_selectors(listing, mileage_selectors)
 
-    # 提取年份
-    data['year'] = safe_text(listing, ".//span[@class='year']")
+    # 提取年份 - 从标题中提取
+    data["year"] = extract_year_from_title(data.get("title", ""))
 
-    # 提取位置
-    data['location'] = safe_text(listing, ".//span[@class='location']")
+    # 提取位置 - 使用CarGurus实际的选择器
+    location_selectors = [
+        ".//span[contains(@class, 'location')]",
+        ".//div[contains(@class, 'location')]",
+        ".//span[contains(@class, 'city')]",
+        ".//div[contains(@class, 'city')]",
+    ]
+    data["location"] = safe_text_multiple_selectors(
+        listing, location_selectors
+    )
 
-    # 提取链接
-    data['link'] = safe_attr(listing, "href")
+    # 提取链接 - 查找包含车源卡片的链接
+    url_selectors = [
+        ".//a[@data-testid='car-blade-link']",
+        ".//a[contains(@href, '/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action')]",
+        ".//a[contains(@href, '/Cars/inventorylisting/')]",
+        ".//a[contains(@href, '/Cars/')]",
+        ".//a[@href]",
+    ]
+
+    # 尝试从当前元素或其父级元素中提取链接
+    data["url"] = ""
+    for selector in url_selectors:
+        try:
+            # 首先在当前元素中查找
+            elements = listing.find_elements(By.XPATH, selector)
+            if elements:
+                href = elements[0].get_attribute("href")
+                if href:
+                    data["url"] = href
+                    break
+
+            # 如果当前元素没有找到，尝试在父级元素中查找
+            parent = listing.find_element(By.XPATH, "./..")
+            elements = parent.find_elements(By.XPATH, selector)
+            if elements:
+                href = elements[0].get_attribute("href")
+                if href:
+                    data["url"] = href
+                    break
+        except Exception:
+            continue
 
     return data
 
@@ -67,7 +164,7 @@ def extract_year_from_title(title: str) -> Optional[int]:
         return None
 
     # 匹配4位数字年份
-    year_match = re.search(r'\b(19|20)\d{2}\b', title)
+    year_match = re.search(r"\b(19|20)\d{2}\b", title)
     if year_match:
         return int(year_match.group())
     return None
@@ -95,23 +192,23 @@ def extract_mileage(mileage_text: str) -> Optional[int]:
         return None
 
     # 清理文本
-    cleaned = mileage_text.lower().replace(',', '').replace(' ', '')
+    cleaned = mileage_text.lower().replace(",", "").replace(" ", "")
 
     # 处理 "N/A" 或空值
-    if cleaned in ['n/a', 'na', '']:
+    if cleaned in ["n/a", "na", ""]:
         return None
 
     # 提取数字
-    if 'k' in cleaned:
+    if "k" in cleaned:
         # 处理 "50K" 格式
-        number_match = re.search(r'(\d+(?:\.\d+)?)k', cleaned)
+        number_match = re.search(r"(\d+(?:\.\d+)?)k", cleaned)
         if number_match:
             return int(float(number_match.group(1)) * 1000)
     else:
         # 处理普通数字格式
-        number_match = re.search(r'(\d+(?:,\d{3})*)', cleaned)
+        number_match = re.search(r"(\d+(?:,\d{3})*)", cleaned)
         if number_match:
-            return int(number_match.group(1).replace(',', ''))
+            return int(number_match.group(1).replace(",", ""))
 
     return None
 
@@ -138,14 +235,14 @@ def extract_price(price_text: str) -> Optional[float]:
         return None
 
     # 清理文本
-    cleaned = price_text.lower().replace(',', '').replace(' ', '')
+    cleaned = price_text.lower().replace(",", "").replace(" ", "")
 
     # 处理 "Contact for price" 等非数字价格
-    if any(phrase in cleaned for phrase in ['contact', 'call', 'n/a', 'na']):
+    if any(phrase in cleaned for phrase in ["contact", "call", "n/a", "na"]):
         return None
 
     # 提取数字
-    number_match = re.search(r'(\d+(?:\.\d+)?)', cleaned)
+    number_match = re.search(r"(\d+(?:\.\d+)?)", cleaned)
     if number_match:
         return float(number_match.group(1))
 
@@ -210,7 +307,7 @@ def clean_text(text: str) -> str:
     cleaned = text.strip()
 
     # 替换多个连续空白字符为单个空格
-    cleaned = re.sub(r'\s+', ' ', cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned)
 
     return cleaned
 
@@ -234,10 +331,28 @@ def extract_make_model_from_title(title: str) -> Dict[str, str]:
 
     # 常见的汽车品牌
     brands = [
-        "Honda", "Toyota", "Ford", "Chevrolet", "Nissan", "Hyundai", "Kia",
-        "Mazda", "Subaru", "Volkswagen", "BMW", "Mercedes-Benz", "Audi",
-        "Lexus", "Acura", "Infiniti", "Volvo", "Jaguar", "Land Rover",
-        "Porsche", "Tesla", "Genesis"
+        "Honda",
+        "Toyota",
+        "Ford",
+        "Chevrolet",
+        "Nissan",
+        "Hyundai",
+        "Kia",
+        "Mazda",
+        "Subaru",
+        "Volkswagen",
+        "BMW",
+        "Mercedes-Benz",
+        "Audi",
+        "Lexus",
+        "Acura",
+        "Infiniti",
+        "Volvo",
+        "Jaguar",
+        "Land Rover",
+        "Porsche",
+        "Tesla",
+        "Genesis",
     ]
 
     title_upper = title.upper()
@@ -256,9 +371,9 @@ def extract_make_model_from_title(title: str) -> Dict[str, str]:
         make_index = title_upper.find(make.upper())
         if make_index != -1:
             # 获取品牌后面的文本
-            after_make = title[make_index + len(make):].strip()
+            after_make = title[make_index + len(make) :].strip()
             # 去除年份
-            after_make = re.sub(r'^\d{4}\s*', '', after_make)
+            after_make = re.sub(r"^\d{4}\s*", "", after_make)
             model = after_make.strip()
 
     return {"make": make, "model": model}
@@ -282,7 +397,7 @@ def extract_vin_from_text(text: str) -> Optional[str]:
         return None
 
     # VIN码通常是17位字母数字组合
-    vin_pattern = r'\b[A-HJ-NPR-Z0-9]{17}\b'
+    vin_pattern = r"\b[A-HJ-NPR-Z0-9]{17}\b"
     vin_match = re.search(vin_pattern, text.upper())
 
     if vin_match:
@@ -310,10 +425,10 @@ def extract_phone_number(text: str) -> Optional[str]:
 
     # 匹配常见的电话号码格式
     phone_patterns = [
-        r'\(\d{3}\)\s*\d{3}-\d{4}',  # (416) 555-1234
-        r'\d{3}-\d{3}-\d{4}',        # 416-555-1234
-        r'\d{3}\.\d{3}\.\d{4}',      # 416.555.1234
-        r'\d{10}',                    # 4165551234
+        r"\(\d{3}\)\s*\d{3}-\d{4}",  # (416) 555-1234
+        r"\d{3}-\d{3}-\d{4}",  # 416-555-1234
+        r"\d{3}\.\d{3}\.\d{4}",  # 416.555.1234
+        r"\d{10}",  # 4165551234
     ]
 
     for pattern in phone_patterns:
@@ -348,7 +463,7 @@ def extract_dealer_name(text: str) -> str:
     suffixes = ["Dealer", "Dealership", "Auto", "Motors", "Cars"]
     for suffix in suffixes:
         if cleaned.endswith(suffix):
-            cleaned = cleaned[:-len(suffix)].strip()
+            cleaned = cleaned[: -len(suffix)].strip()
 
     return cleaned
 
@@ -379,7 +494,7 @@ def extract_fuel_type(text: str) -> Optional[str]:
         "diesel": ["diesel"],
         "electric": ["electric", "ev", "battery"],
         "hybrid": ["hybrid"],
-        "plug-in hybrid": ["plug-in hybrid", "phev"]
+        "plug-in hybrid": ["plug-in hybrid", "phev"],
     }
 
     for fuel_type, keywords in fuel_types.items():

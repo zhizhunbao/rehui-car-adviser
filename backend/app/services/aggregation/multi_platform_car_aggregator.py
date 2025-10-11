@@ -113,7 +113,6 @@ class MultiPlatformCarAggregator:
             )
             self.platform_adapters[PlatformType.CARGURUS] = (
                 CargurusCrawlerCoordinator(
-                    date_str="search",
                     make_name=make_name,
                     zip_code=zip_code,
                     profile_name=profile_name,
@@ -223,7 +222,7 @@ class MultiPlatformCarAggregator:
             )
 
             # 调用平台适配器搜索
-            cars = await adapter.search_cars(parsed_query, config.max_results)
+            cars = await adapter.search_cars(parsed_query)
 
             # 为每个车源添加平台标识
             for car in cars:

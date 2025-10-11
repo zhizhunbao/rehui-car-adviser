@@ -25,7 +25,6 @@ from app.utils.validation.page_detection_utils import (
 )
 from app.utils.web.behavior_simulator_utils import simulate_human_behavior
 from app.utils.web.browser_utils import browser_utils
-from app.utils.web.captcha_utils import has_captcha, solve_captcha
 from app.utils.web.dead_link_utils import is_dead_link
 from app.utils.web.url_builder_utils import build_cargurus_search_url
 
@@ -85,49 +84,24 @@ class CargurusCarSearcher:
                 driver.get(search_url)
                 await asyncio.sleep(random.uniform(2, 4))
 
+                # 调试：记录页面标题和URL
+                logger.log_result("页面调试", f"当前页面标题: {driver.title}")
+                logger.log_result(
+                    "页面调试", f"当前页面URL: {driver.current_url}"
+                )
+
                 # 使用 utils 进行页面检测
                 if is_blocked_page(driver.page_source):
                     logger.log_result("页面检测", "页面被封禁")
                     return []
-
-                # 使用 utils 处理验证码
-                if has_captcha(driver):
-                    logger.log_result("验证码检测", "发现验证码，尝试处理")
-                    success = await solve_captcha(driver, max_attempts=1)
-                    if not success:
-                        logger.log_result("验证码处理", "验证码处理失败")
-                        return []
 
                 # 使用 utils 模拟人类行为
                 simulate_human_behavior(driver)
 
                 # 检查页面是否有效
                 if not is_valid_vehicle_page(driver.page_source):
-                    # 检查是否有验证码
-                    if has_captcha(driver):
-                        logger.log_result(
-                            "验证码检测", "检测到验证码，尝试解决"
-                        )
-                        captcha_solved = await solve_captcha(
-                            driver, max_attempts=3
-                        )
-                        if captcha_solved:
-                            logger.log_result(
-                                "验证码解决", "验证码解决成功，重新检测页面"
-                            )
-                            # 等待页面重新加载
-                            await asyncio.sleep(5)
-                            if not is_valid_vehicle_page(driver.page_source):
-                                logger.log_result(
-                                    "页面检测", "验证码解决后页面仍无效"
-                                )
-                                return []
-                        else:
-                            logger.log_result("验证码解决", "验证码解决失败")
-                            return []
-                    else:
-                        logger.log_result("页面检测", "页面无效")
-                        return []
+                    logger.log_result("页面检测", "页面无效")
+                    return []
 
                 # 使用 selector_utils 获取车源列表选择器
                 car_listing_selectors = (
@@ -171,7 +145,7 @@ class CargurusCarSearcher:
                                 data.get("title", "")
                             ),
                             mileage=data.get("mileage", ""),
-                            city=data.get("location", ""),
+                            location=data.get("location", ""),
                             link=data.get("url", ""),
                         )
                         cars.append(car)
@@ -201,16 +175,167 @@ class CargurusCarSearcher:
             if not make_name:
                 return ""
 
-            # 使用 ConfigDAO 获取品牌代码
-            make_code = await self.config_dao.get_make_code(make_name)
+            # 先尝试中文品牌名称转换
+            english_make_name = self._convert_chinese_brand_to_english(
+                make_name
+            )
             logger.log_result(
-                "获取品牌代码", f"品牌: {make_name} -> 代码: {make_code}"
+                "品牌名称转换",
+                f"中文: {make_name} -> 英文: {english_make_name}",
+            )
+
+            # 使用 ConfigDAO 获取品牌代码
+            make_code = await self.config_dao.get_make_code(english_make_name)
+            logger.log_result(
+                "获取品牌代码",
+                f"品牌: {english_make_name} -> 代码: {make_code}",
             )
             return make_code
 
         except Exception as e:
             logger.log_result(f"获取品牌代码失败: {str(e)}")
             return make_name.lower().replace(" ", "-") if make_name else ""
+
+    def _convert_chinese_brand_to_english(self, chinese_name: str) -> str:
+        """将中文品牌名称转换为英文品牌名称"""
+        # 中文品牌名称到英文品牌名称的映射
+        brand_mapping = {
+            "本田": "Honda",
+            "丰田": "Toyota",
+            "日产": "Nissan",
+            "马自达": "Mazda",
+            "斯巴鲁": "Subaru",
+            "三菱": "Mitsubishi",
+            "铃木": "Suzuki",
+            "雷克萨斯": "Lexus",
+            "英菲尼迪": "Infiniti",
+            "讴歌": "Acura",
+            "宝马": "BMW",
+            "奔驰": "Mercedes-Benz",
+            "奥迪": "Audi",
+            "大众": "Volkswagen",
+            "保时捷": "Porsche",
+            "捷豹": "Jaguar",
+            "路虎": "Land Rover",
+            "沃尔沃": "Volvo",
+            "萨博": "Saab",
+            "现代": "Hyundai",
+            "起亚": "Kia",
+            "福特": "Ford",
+            "雪佛兰": "Chevrolet",
+            "别克": "Buick",
+            "凯迪拉克": "Cadillac",
+            "林肯": "Lincoln",
+            "道奇": "Dodge",
+            "克莱斯勒": "Chrysler",
+            "吉普": "Jeep",
+            "菲亚特": "Fiat",
+            "阿尔法罗密欧": "Alfa Romeo",
+            "玛莎拉蒂": "Maserati",
+            "法拉利": "Ferrari",
+            "兰博基尼": "Lamborghini",
+            "宾利": "Bentley",
+            "劳斯莱斯": "Rolls-Royce",
+            "阿斯顿马丁": "Aston Martin",
+            "迈凯伦": "McLaren",
+        }
+
+        # 如果输入的是中文，尝试转换
+        if chinese_name in brand_mapping:
+            return brand_mapping[chinese_name]
+
+        # 如果输入的不是中文或没有映射，直接返回原名称
+        return chinese_name
+
+    def _convert_chinese_model_to_english(self, chinese_name: str) -> str:
+        """将中文车型名称转换为英文车型名称"""
+        # 中文车型名称到英文车型名称的映射
+        model_mapping = {
+            "雅阁": "Accord",
+            "思域": "Civic",
+            "CR-V": "CR-V",
+            "飞度": "Fit",
+            "奥德赛": "Odyssey",
+            "Pilot": "Pilot",
+            "Passport": "Passport",
+            "Ridgeline": "Ridgeline",
+            "Insight": "Insight",
+            "Clarity": "Clarity",
+            "凯美瑞": "Camry",
+            "卡罗拉": "Corolla",
+            "RAV4": "RAV4",
+            "汉兰达": "Highlander",
+            "普锐斯": "Prius",
+            "普拉多": "Land Cruiser",
+            "坦途": "Tundra",
+            "塔科马": "Tacoma",
+            "塞纳": "Sienna",
+            "4Runner": "4Runner",
+            "天籁": "Altima",
+            "轩逸": "Sentra",
+            "奇骏": "Rogue",
+            "逍客": "Qashqai",
+            "楼兰": "Murano",
+            "途乐": "Pathfinder",
+            "GT-R": "GT-R",
+            "370Z": "370Z",
+            "Leaf": "Leaf",
+            "Versa": "Versa",
+            "马自达3": "Mazda3",
+            "马自达6": "Mazda6",
+            "CX-5": "CX-5",
+            "CX-9": "CX-9",
+            "MX-5": "MX-5",
+            "CX-3": "CX-3",
+            "CX-30": "CX-30",
+            "森林人": "Forester",
+            "傲虎": "Outback",
+            "力狮": "Legacy",
+            "翼豹": "Impreza",
+            "WRX": "WRX",
+            "BRZ": "BRZ",
+            "阿特兹": "Atenza",
+            "昂克赛拉": "Axela",
+            "欧蓝德": "Outlander",
+            "蓝瑟": "Lancer",
+            "帕杰罗": "Pajero",
+            "Eclipse": "Eclipse",
+            "雨燕": "Swift",
+            "维特拉": "Vitara",
+            "吉姆尼": "Jimny",
+            "SX4": "SX4",
+            "ES": "ES",
+            "IS": "IS",
+            "GS": "GS",
+            "LS": "LS",
+            "RX": "RX",
+            "GX": "GX",
+            "LX": "LX",
+            "CT": "CT",
+            "RC": "RC",
+            "LC": "LC",
+            "UX": "UX",
+            "NX": "NX",
+            "Q50": "Q50",
+            "Q60": "Q60",
+            "Q70": "Q70",
+            "QX50": "QX50",
+            "QX60": "QX60",
+            "QX70": "QX70",
+            "QX80": "QX80",
+            "MDX": "MDX",
+            "RDX": "RDX",
+            "TLX": "TLX",
+            "ILX": "ILX",
+            "NSX": "NSX",
+        }
+
+        # 如果输入的是中文，尝试转换
+        if chinese_name in model_mapping:
+            return model_mapping[chinese_name]
+
+        # 如果输入的不是中文或没有映射，直接返回原名称
+        return chinese_name
 
     async def _get_model_code_from_db(
         self, make_name: str, model_name: str
@@ -220,13 +345,26 @@ class CargurusCarSearcher:
             if not make_name or not model_name:
                 return ""
 
+            # 先转换品牌和车型名称
+            english_make_name = self._convert_chinese_brand_to_english(
+                make_name
+            )
+            english_model_name = self._convert_chinese_model_to_english(
+                model_name
+            )
+
+            logger.log_result(
+                "车型名称转换",
+                f"品牌: {make_name} -> {english_make_name}, 车型: {model_name} -> {english_model_name}",
+            )
+
             # 使用 ConfigDAO 获取车型代码
             model_code = await self.config_dao.get_model_code(
-                make_name, model_name
+                english_make_name, english_model_name
             )
             logger.log_result(
                 "获取车型代码",
-                f"品牌: {make_name}, 车型: {model_name} -> 代码: {model_code}",
+                f"品牌: {english_make_name}, 车型: {english_model_name} -> 代码: {model_code}",
             )
             return model_code
 

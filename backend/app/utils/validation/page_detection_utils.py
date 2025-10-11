@@ -108,12 +108,6 @@ def is_blocked_page(
             r"403 forbidden|404 not found).*</div>",
             "error_content",
         ),
-        # 验证码页面
-        (
-            r'<div[^>]*class="[^"]*captcha[^"]*"[^>]*>.*(?:verify|challenge|'
-            r"puzzle).*</div>",
-            "captcha_page",
-        ),
         # 维护页面
         (
             r"<div[^>]*>.*(?:under maintenance|temporarily unavailable|"
@@ -157,11 +151,6 @@ def is_blocked_page(
     if not blocked_reason:
         block_content_indicators = [
             "你被封禁了",
-            "验证码滑块",
-            "滑块验证",
-            "人机验证",
-            "请完成验证",
-            "验证失败",
             "访问被拒绝",
             "请求过于频繁",
             "请稍后再试",
@@ -169,13 +158,6 @@ def is_blocked_page(
             "账号被封禁",
             "访问受限",
             "需要验证身份",
-            "安全验证",
-            "反爬虫验证",
-            "检测到异常访问",
-            "请完成安全验证",
-            "验证码验证",
-            "滑动验证",
-            "点击验证",
         ]
 
         for indicator in block_content_indicators:
@@ -234,19 +216,16 @@ def is_vehicle_available(page_html: str) -> bool:
     if not page_html:
         return False
 
-    # 车辆不可用的指示器
+    page_lower = page_html.lower()
+
+    # 车辆不可用的指示器 - 更精确的检测
     unavailable_indicators = [
         "sold",
         "no longer available",
-        "unavailable",
         "not available",
         "removed",
         "deleted",
         "expired",
-        "inactive",
-        "pending",
-        "reserved",
-        "hold",
         "withdrawn",
         "discontinued",
         "out of stock",
@@ -256,23 +235,70 @@ def is_vehicle_available(page_html: str) -> bool:
         "no longer listed",
     ]
 
-    page_lower = page_html.lower()
-
-    # 检查是否包含不可用指示器
+    # 检查是否包含不可用指示器（排除CSS和无关内容）
     for indicator in unavailable_indicators:
         if indicator in page_lower:
-            return False
+            # 排除CSS样式中的匹配
+            if not re.search(
+                r"@keyframes.*" + re.escape(indicator),
+                page_html,
+                re.IGNORECASE,
+            ):
+                if not re.search(
+                    r"\." + re.escape(indicator) + r"\s*\{",
+                    page_html,
+                    re.IGNORECASE,
+                ):
+                    # 排除图片占位符中的匹配
+                    if not re.search(
+                        r"placeholder.*" + re.escape(indicator),
+                        page_html,
+                        re.IGNORECASE,
+                    ):
+                        # 排除UI控件中的匹配
+                        if not re.search(
+                            r'data-state="[^"]*' + re.escape(indicator),
+                            page_html,
+                            re.IGNORECASE,
+                        ):
+                            # 排除版权信息中的匹配
+                            if not re.search(
+                                r"rights reserved", page_html, re.IGNORECASE
+                            ):
+                                return False
 
-    # 检查特定的HTML结构
+    # 检查特定的HTML结构 - 真正的不可用元素
     unavailable_patterns = [
-        r'<div[^>]*class="[^"]*(?:sold|unavailable|removed)[^"]*"',
-        r'<span[^>]*class="[^"]*(?:sold|unavailable|removed)[^"]*"',
-        r'<p[^>]*class="[^"]*(?:sold|unavailable|removed)[^"]*"',
+        # 明确的不可用状态元素
+        r'<div[^>]*class="[^"]*(?:sold|unavailable|removed)[^"]*"[^>]*>.*?(?:sold|unavailable|removed|no longer available).*?</div>',
+        r'<span[^>]*class="[^"]*(?:sold|unavailable|removed)[^"]*"[^>]*>.*?(?:sold|unavailable|removed|no longer available).*?</span>',
+        r'<p[^>]*class="[^"]*(?:sold|unavailable|removed)[^"]*"[^>]*>.*?(?:sold|unavailable|removed|no longer available).*?</p>',
     ]
 
     for pattern in unavailable_patterns:
-        if re.search(pattern, page_html, re.IGNORECASE):
+        if re.search(pattern, page_html, re.IGNORECASE | re.DOTALL):
             return False
+
+    # 检查是否有明显的不可用状态元素
+    unavailable_elements = [
+        r'<div[^>]*class="[^"]*sold[^"]*"[^>]*>.*?</div>',
+        r'<div[^>]*id="[^"]*sold[^"]*"[^>]*>.*?</div>',
+        r'<div[^>]*class="[^"]*unavailable[^"]*"[^>]*>.*?</div>',
+        r'<div[^>]*id="[^"]*unavailable[^"]*"[^>]*>.*?</div>',
+    ]
+
+    for pattern in unavailable_elements:
+        matches = re.findall(pattern, page_html, re.IGNORECASE | re.DOTALL)
+        for match in matches:
+            # 检查元素内容是否包含明确的不可用文本
+            if re.search(
+                r"(?:sold|unavailable|removed|no longer available)",
+                match,
+                re.IGNORECASE,
+            ):
+                # 排除图片占位符
+                if not re.search(r"placeholder", match, re.IGNORECASE):
+                    return False
 
     return True
 
@@ -325,95 +351,6 @@ def detect_page_type(page_html: str) -> str:
         return "unknown"
 
 
-def has_captcha(page_html: str) -> bool:
-    """
-    检测页面是否有验证码
-
-    Args:
-        page_html: 页面HTML内容
-
-    Returns:
-        是否有验证码
-    """
-    if not page_html:
-        return False
-
-    # 中文验证码指示器
-    chinese_captcha_indicators = [
-        "验证码滑块",
-        "滑块验证",
-        "人机验证",
-        "请完成验证",
-        "滑动验证",
-        "点击验证",
-        "验证码验证",
-        "安全验证",
-        "反爬虫验证",
-        "检测到异常访问",
-        "请完成安全验证",
-    ]
-
-    # 检查中文验证码指示器
-    for indicator in chinese_captcha_indicators:
-        if indicator in page_html:
-            return True
-
-    # 英文验证码指示器
-    english_captcha_indicators = [
-        "captcha",
-        "recaptcha",
-        "hcaptcha",
-        "verification",
-        "verify",
-        "challenge",
-        "puzzle",
-        "slider",
-        "jigsaw",
-        "geetest",
-        "cloudflare",
-    ]
-
-    page_lower = page_html.lower()
-
-    # 检查是否包含英文验证码指示器
-    for indicator in english_captcha_indicators:
-        if indicator in page_lower:
-            return True
-
-    # 检查特定的HTML结构 - 只检测真正的验证码页面
-    captcha_patterns = [
-        # 验证码容器
-        r'<div[^>]*class="[^"]*(?:captcha|recaptcha|hcaptcha|slider|verification)[^"]*"[^>]*>.*(?:verify|challenge|puzzle|滑块|验证码|人机验证).*</div>',
-        # 验证码iframe
-        r'<iframe[^>]*src="[^"]*(?:captcha|recaptcha|hcaptcha)[^"]*"[^>]*>',
-        # 验证码脚本 - 但排除第三方服务
-        r'<script[^>]*src="[^"]*(?:captcha|recaptcha|hcaptcha)[^"]*"[^>]*>',
-        # 中文验证码内容
-        r"<div[^>]*>.*(?:滑块|验证码|人机验证|请完成验证).*</div>",
-        # 验证码表单
-        r"<form[^>]*>.*(?:captcha|verification|验证码).*</form>",
-    ]
-
-    for pattern in captcha_patterns:
-        if re.search(pattern, page_html, re.IGNORECASE | re.DOTALL):
-            return True
-
-    # 检查是否有验证码相关的JavaScript变量或配置 - 更精确的检测
-    js_captcha_patterns = [
-        r"verificationRequired\s*[:=]\s*true",
-        r"isCaptchaActive\s*[:=]\s*true",
-        r"captchaChallenge\s*[:=]",
-        r"showCaptcha\s*[:=]\s*true",
-        r"captchaVisible\s*[:=]\s*true",
-    ]
-
-    for pattern in js_captcha_patterns:
-        if re.search(pattern, page_html, re.IGNORECASE):
-            return True
-
-    return False
-
-
 def is_loading_page(page_html: str) -> bool:
     """
     检测页面是否正在加载
@@ -427,36 +364,89 @@ def is_loading_page(page_html: str) -> bool:
     if not page_html:
         return True
 
-    # 加载指示器
+    page_lower = page_html.lower()
+
+    # 检查页面标题是否包含加载信息
+    title_match = re.search(
+        r"<title[^>]*>(.*?)</title>", page_html, re.IGNORECASE | re.DOTALL
+    )
+    if title_match:
+        title = title_match.group(1).lower()
+        loading_titles = [
+            "loading",
+            "please wait",
+            "loading...",
+            "please wait while we load",
+            "loading content",
+            "fetching data",
+            "processing request",
+        ]
+        for loading_title in loading_titles:
+            if loading_title in title:
+                return True
+
+    # 检查明显的加载指示器（排除CSS样式）
     loading_indicators = [
-        "loading",
         "please wait",
         "loading...",
-        "spinner",
-        "progress",
         "please wait while we load",
         "loading content",
         "fetching data",
         "processing request",
+        "loading please wait",
+        "please wait loading",
     ]
 
-    page_lower = page_html.lower()
-
-    # 检查是否包含加载指示器
+    # 只检查非CSS内容中的加载指示器
     for indicator in loading_indicators:
         if indicator in page_lower:
-            return True
+            # 排除CSS样式中的匹配
+            if not re.search(
+                r"@keyframes.*" + re.escape(indicator),
+                page_html,
+                re.IGNORECASE,
+            ):
+                if not re.search(
+                    r"\." + re.escape(indicator) + r"\s*\{",
+                    page_html,
+                    re.IGNORECASE,
+                ):
+                    return True
 
-    # 检查特定的HTML结构
+    # 检查特定的HTML结构 - 真正的加载元素
     loading_patterns = [
-        r'<div[^>]*class="[^"]*(?:loading|spinner|progress)[^"]*"',
-        r'<div[^>]*id="[^"]*(?:loading|spinner|progress)[^"]*"',
-        r'<img[^>]*src="[^"]*(?:loading|spinner|progress)[^"]*"',
+        # 加载中的div元素（有特定的类名或ID）
+        r'<div[^>]*(?:class|id)="[^"]*(?:loading|spinner|progress)[^"]*"[^>]*>.*?(?:loading|please wait|spinner).*?</div>',
+        # 加载中的span元素
+        r'<span[^>]*(?:class|id)="[^"]*(?:loading|spinner|progress)[^"]*"[^>]*>.*?(?:loading|please wait|spinner).*?</span>',
+        # 加载图片
+        r'<img[^>]*src="[^"]*(?:loading|spinner|progress)[^"]*"[^>]*>',
+        # 加载中的文本内容
+        r"<div[^>]*>.*?(?:please wait|loading\.\.\.|fetching data|processing request).*?</div>",
     ]
 
     for pattern in loading_patterns:
-        if re.search(pattern, page_html, re.IGNORECASE):
+        if re.search(pattern, page_html, re.IGNORECASE | re.DOTALL):
             return True
+
+    # 检查是否有明显的加载状态元素
+    loading_elements = [
+        r'<div[^>]*class="[^"]*loading[^"]*"[^>]*>.*?</div>',
+        r'<div[^>]*id="[^"]*loading[^"]*"[^>]*>.*?</div>',
+        r'<div[^>]*class="[^"]*spinner[^"]*"[^>]*>.*?</div>',
+        r'<div[^>]*id="[^"]*spinner[^"]*"[^>]*>.*?</div>',
+    ]
+
+    for pattern in loading_elements:
+        matches = re.findall(pattern, page_html, re.IGNORECASE | re.DOTALL)
+        for match in matches:
+            # 检查元素内容是否包含加载文本
+            if re.search(
+                r"(?:loading|please wait|spinner|progress)",
+                match,
+                re.IGNORECASE,
+            ):
+                return True
 
     return False
 
@@ -642,7 +632,6 @@ def get_page_metadata(page_html: str) -> Dict[str, Any]:
     metadata = {
         "is_blocked": is_blocked_page(page_html),
         "is_loading": is_loading_page(page_html),
-        "has_captcha": has_captcha(page_html),
         "page_type": detect_page_type(page_html),
         "has_vehicle_data": has_vehicle_data(page_html),
         "vehicle_count": detect_vehicle_count(page_html),
@@ -740,9 +729,6 @@ def is_valid_vehicle_page(page_html: str) -> bool:
         return False
 
     if is_loading_page(page_html):
-        return False
-
-    if has_captcha(page_html):
         return False
 
     # 检查是否是无结果页面

@@ -24,8 +24,6 @@ from app.utils.validation.page_detection_utils import (
     is_blocked_page as _is_blocked_page,
 )
 from app.utils.validation.url_checker_utils import check_url_alive_sync
-from app.utils.web.captcha_utils import has_captcha as _has_captcha
-from app.utils.web.captcha_utils import solve_captcha as _solve_captcha
 
 # 导入现有的utils模块
 from app.utils.web.driver_utils import (
@@ -162,31 +160,6 @@ def is_blocked_page(page_html: str) -> bool:
     return _is_blocked_page(page_html)
 
 
-def has_captcha(driver) -> bool:
-    """
-    检测页面是否有验证码
-
-    Args:
-        driver: WebDriver实例
-
-    Returns:
-        是否有验证码
-    """
-    return _has_captcha(driver)
-
-
-async def solve_captcha(driver, max_attempts: int = 3) -> bool:
-    """
-    自动解决验证码
-
-    Args:
-        driver: WebDriver实例
-        max_attempts: 最大尝试次数
-
-    Returns:
-        是否成功解决
-    """
-    return await _solve_captcha(driver, max_attempts)
 
 
 def cleanup_old_profiles(days_old: int = 7) -> None:
